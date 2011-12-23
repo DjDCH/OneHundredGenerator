@@ -1,0 +1,5 @@
+OneHundredGenerator - Version 0.1
+----------------------------
+    * First release
+    * Build with Bukkit #1073
+    * Tested with CraftBukkit #1597

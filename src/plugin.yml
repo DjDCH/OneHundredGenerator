@@ -1,0 +1,7 @@
+name: OneHundredGenerator
+description: Minecraft 1.0.0 terrain generator plugin for Bukkit.
+author: DjDCH
+main: com.djdch.bukkit.onehundredgenerator.OneHundredGenerator
+version: 0.1
+load: startup
+website: https://redmine.djdch.com/projects/list_files/onehundredgenerator
