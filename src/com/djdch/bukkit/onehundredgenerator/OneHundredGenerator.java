@@ -33,7 +33,7 @@ public class OneHundredGenerator extends JavaPlugin {
 	/**
 	 *
 	 */
-	protected final HashMap<String, WorldConfiguration> worldsSettings = new HashMap();
+	protected final HashMap<String, WorldConfiguration> worldsSettings = new HashMap<String, WorldConfiguration>();
 
 	/**
 	 * Method execute when the plugin is enable.
