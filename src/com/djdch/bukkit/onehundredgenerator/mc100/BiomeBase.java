@@ -4,6 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.server.Block;
+import net.minecraft.server.EntityChicken;
+import net.minecraft.server.EntityCow;
+import net.minecraft.server.EntityCreeper;
+import net.minecraft.server.EntityEnderman;
+import net.minecraft.server.EntityPig;
+import net.minecraft.server.EntitySheep;
+import net.minecraft.server.EntitySkeleton;
+import net.minecraft.server.EntitySlime;
+import net.minecraft.server.EntitySpider;
+import net.minecraft.server.EntitySquid;
+import net.minecraft.server.EntityZombie;
+import net.minecraft.server.EnumCreatureType;
+import net.minecraft.server.World;
+
 public class BiomeBase extends net.minecraft.server.BiomeBase {
     public static final BiomeBase[] a = new BiomeBase[256];
 
@@ -35,12 +50,12 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 //    public float z = 0.5F;
 //    public int A = 16777215;
     public BiomeDecorator B;
-    @SuppressWarnings("rawtypes")
-    protected List C = new ArrayList();
-    @SuppressWarnings("rawtypes")
-    protected List D = new ArrayList();
-    @SuppressWarnings("rawtypes")
-    protected List E = new ArrayList();
+    @SuppressWarnings("unchecked")
+    protected List<BiomeMeta> C = new ArrayList();
+    @SuppressWarnings("unchecked")
+    protected List<BiomeMeta> D = new ArrayList();
+    @SuppressWarnings("unchecked")
+    protected List<BiomeMeta> E = new ArrayList();
 //    private boolean K;
 //    private boolean L = true;
 //    public final int F;
@@ -84,7 +99,6 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
         return new BiomeDecorator(this);
     }
 
-    @Override
     private BiomeBase a(float paramFloat1, float paramFloat2) {
         if ((paramFloat1 > 0.1F) && (paramFloat1 < 0.2F))
             throw new IllegalArgumentException("Please avoid temperatures in the range 0.1 - 0.2 because of snow");
@@ -94,14 +108,12 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
         return this;
     }
 
-    @Override
     private BiomeBase b(float paramFloat1, float paramFloat2) {
         this.w = paramFloat1;
         this.x = paramFloat2;
         return this;
     }
 
-    @Override
     private BiomeBase g() {
         this.L = false;
         return this;
@@ -131,7 +143,7 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 //    }
 
     @Override
-    public List a(EnumCreatureType paramEnumCreatureType) {
+    public List<BiomeMeta> a(EnumCreatureType paramEnumCreatureType) {
         if (paramEnumCreatureType == EnumCreatureType.MONSTER)
             return this.C;
         if (paramEnumCreatureType == EnumCreatureType.CREATURE)
@@ -145,12 +157,11 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 //        return this.K;
 //    }
 
-    @Override
-    public boolean c() {
-        if (this.K)
-            return false;
-        return this.L;
-    }
+//    public boolean c() {
+//        if (this.K)
+//            return false;
+//        return this.L;
+//    }
 
     @Override
     public float d() {
