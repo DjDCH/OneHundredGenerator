@@ -1,6 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.server.Block;
@@ -13,7 +12,6 @@ import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.event.world.StructureGrowEvent;
 import org.bukkit.material.MaterialData;
-import org.bukkit.plugin.PluginManager;
 
 public class WorldGenTaiga2 extends WorldGenerator {
     public WorldGenTaiga2(boolean flag) {
@@ -33,9 +31,8 @@ public class WorldGenTaiga2 extends WorldGenerator {
         boolean flag = true;
 
         if ((j >= 1) && (j + l + 1 <= world.getHeight())) {
-            for (int l1 = j; (l1 <= j + 1 + l) && (flag); l1++) {
-                boolean flag1 = true;
-                int k2;
+            int l1;
+            for (l1 = j; (l1 <= j + 1 + l) && (flag); l1++) {
                 int k2;
                 if (l1 - j < i1)
                     k2 = 0;
@@ -73,7 +70,8 @@ public class WorldGenTaiga2 extends WorldGenerator {
                 int i2 = 1;
                 byte b0 = 0;
 
-                for (int j2 = 0; j2 <= j1; j2++) {
+                int j2;
+                for (j2 = 0; j2 <= j1; j2++) {
                     int j3 = j + l - j2;
 
                     for (int i3 = i - k2; i3 <= i + k2; i3++) {
@@ -82,14 +80,14 @@ public class WorldGenTaiga2 extends WorldGenerator {
                         for (int l3 = k - k2; l3 <= k + k2; l3++) {
                             int i4 = l3 - k;
 
-                            if (((Math.abs(k3) == k2) && (Math.abs(i4) == k2) && (k2 > 0)) || (Block.o[world.getTypeId(i3, j3, l3)] != 0))
+                            if (((Math.abs(k3) == k2) && (Math.abs(i4) == k2) && (k2 > 0)) || (Block.o[world.getTypeId(i3, j3, l3)] != false))
                                 continue;
                             if (event == null) {
                                 a(world, i3, j3, l3, Block.LEAVES.id, 1);
                             } else {
                                 BlockState leavesState = bukkitWorld.getBlockAt(i3, j3, l3).getState();
                                 leavesState.setTypeId(Block.LEAVES.id);
-                                leavesState.setData(new MaterialData(Block.LEAVES.id, 1));
+                                leavesState.setData(new MaterialData(Block.LEAVES.id, (byte) 1));
                                 event.getBlocks().add(leavesState);
                             }
 
@@ -119,7 +117,7 @@ public class WorldGenTaiga2 extends WorldGenerator {
                     } else {
                         BlockState logState = bukkitWorld.getBlockAt(i, j + j3, k).getState();
                         logState.setTypeId(Block.LOG.id);
-                        logState.setData(new MaterialData(Block.LOG.id, 1));
+                        logState.setData(new MaterialData(Block.LOG.id, (byte) 1));
                         event.getBlocks().add(logState);
                     }
 
