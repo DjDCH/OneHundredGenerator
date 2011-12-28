@@ -22,7 +22,7 @@ public class GenLayerZoomVoronoi extends GenLayer {
         int i3 = i1 << i;
         int[] arrayOfInt2 = IntCache.a(i2 * i3);
         for (int i4 = 0; i4 < i1 - 1; i4++) {
-            i5 = arrayOfInt1[(0 + (i4 + 0) * n)];
+            int i5 = arrayOfInt1[(0 + (i4 + 0) * n)];
             int i6 = arrayOfInt1[(0 + (i4 + 1) * n)];
             for (int i7 = 0; i7 < n - 1; i7++) {
                 double d1 = j * 0.9D;
