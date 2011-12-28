@@ -20,7 +20,7 @@ public class NoiseGeneratorPerlin extends NoiseGenerator {
             this.d[i] = i;
         }
 
-        for (i = 0; i < 256; i++) {
+        for (int i = 0; i < 256; i++) {
             int j = paramRandom.nextInt(256 - i) + i;
             int k = this.d[i];
             this.d[i] = this.d[j];
@@ -58,24 +58,24 @@ public class NoiseGeneratorPerlin extends NoiseGenerator {
         int i6;
         double d7;
         if (paramInt2 == 1) {
-            i = 0;
+            int i = 0;
             int j = 0;
             int k = 0;
-            m = 0;
+            int m = 0;
             double d1 = 0.0D;
             double d2 = 0.0D;
-            n = 0;
+            int n = 0;
             double d3 = 1.0D / paramDouble7;
             for (int i1 = 0; i1 < paramInt1; i1++) {
-                d4 = paramDouble1 + i1 * paramDouble4 + this.a;
+                double d4 = paramDouble1 + i1 * paramDouble4 + this.a;
                 int i2 = (int) d4;
                 if (d4 < i2)
                     i2--;
                 int i3 = i2 & 0xFF;
                 d4 -= i2;
-                d5 = d4 * d4 * d4 * (d4 * (d4 * 6.0D - 15.0D) + 10.0D);
+                double d5 = d4 * d4 * d4 * (d4 * (d4 * 6.0D - 15.0D) + 10.0D);
 
-                for (i4 = 0; i4 < paramInt3; i4++) {
+                for (int i4 = 0; i4 < paramInt3; i4++) {
                     d6 = paramDouble3 + i4 * paramDouble6 + this.c;
                     i5 = (int) d6;
                     if (d6 < i5)
