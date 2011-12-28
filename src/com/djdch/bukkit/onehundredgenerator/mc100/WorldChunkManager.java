@@ -6,7 +6,6 @@ import java.util.Random;
 
 import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.ChunkPosition;
-import net.minecraft.server.IntCache;
 import net.minecraft.server.World;
 
 public class WorldChunkManager {
