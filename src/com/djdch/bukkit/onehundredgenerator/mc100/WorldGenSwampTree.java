@@ -19,7 +19,9 @@ public class WorldGenSwampTree extends WorldGenerator {
         int n;
         int i1;
         int i2;
-        for (int k = paramInt2; k <= paramInt2 + 1 + i; k++) {
+        int k;
+        int m;
+        for (k = paramInt2; k <= paramInt2 + 1 + i; k++) {
             m = 1;
             if (k == paramInt2)
                 m = 0;
@@ -51,14 +53,14 @@ public class WorldGenSwampTree extends WorldGenerator {
 
         paramWorld.setRawTypeId(paramInt1, paramInt2 - 1, paramInt3, Block.DIRT.id);
         int i3;
-        for (int m = paramInt2 - 3 + i; m <= paramInt2 + i; m++) {
+        for (m = paramInt2 - 3 + i; m <= paramInt2 + i; m++) {
             n = m - (paramInt2 + i);
             i1 = 2 - n / 2;
             for (i2 = paramInt1 - i1; i2 <= paramInt1 + i1; i2++) {
                 i3 = i2 - paramInt1;
                 for (int i4 = paramInt3 - i1; i4 <= paramInt3 + i1; i4++) {
                     int i5 = i4 - paramInt3;
-                    if (((Math.abs(i3) != i1) || (Math.abs(i5) != i1) || ((paramRandom.nextInt(2) != 0) && (n != 0))) && (Block.o[paramWorld.getTypeId(i2, m, i4)] == 0))
+                    if (((Math.abs(i3) != i1) || (Math.abs(i5) != i1) || ((paramRandom.nextInt(2) != 0) && (n != 0))) && (Block.o[paramWorld.getTypeId(i2, m, i4)] == false))
                         paramWorld.setRawTypeId(i2, m, i4, Block.LEAVES.id);
                 }
             }
