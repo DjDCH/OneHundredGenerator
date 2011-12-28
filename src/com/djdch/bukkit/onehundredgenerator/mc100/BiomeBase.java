@@ -50,11 +50,11 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 //    public float z = 0.5F;
 //    public int A = 16777215;
     public BiomeDecorator B;
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     protected List<BiomeMeta> C = new ArrayList();
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     protected List<BiomeMeta> D = new ArrayList();
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     protected List<BiomeMeta> E = new ArrayList();
 //    private boolean K;
 //    private boolean L = true;
@@ -65,6 +65,8 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
     protected WorldGenSwampTree J = new WorldGenSwampTree();
 
     protected BiomeBase(int paramInt) {
+        super(paramInt);
+
 //      this.F = paramInt;
         a[paramInt] = this;
         this.B = a();
@@ -127,20 +129,20 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
         return this.G;
     }
 
-//    protected BiomeBase a(String paramString) {
-//        this.r = paramString;
-//        return this;
-//    }
+    protected BiomeBase a(String paramString) {
+        this.r = paramString;
+        return this;
+    }
 
-//    protected BiomeBase a(int paramInt) {
-//        this.v = paramInt;
-//        return this;
-//    }
+    protected BiomeBase a(int paramInt) {
+        this.v = paramInt;
+        return this;
+    }
 
-//    protected BiomeBase b(int paramInt) {
-//        this.s = paramInt;
-//        return this;
-//    }
+    protected BiomeBase b(int paramInt) {
+        this.s = paramInt;
+        return this;
+    }
 
     @Override
     public List<BiomeMeta> a(EnumCreatureType paramEnumCreatureType) {
