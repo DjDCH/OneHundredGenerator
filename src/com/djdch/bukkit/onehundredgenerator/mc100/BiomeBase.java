@@ -115,10 +115,10 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
         return this;
     }
 
-    private BiomeBase g() {
-        this.L = false;
-        return this;
-    }
+//    private BiomeBase g() {
+//        this.L = false;
+//        return this;
+//    }
 
     @Override
     public WorldGenerator a(Random paramRandom) {
