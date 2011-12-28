@@ -17,7 +17,7 @@ public class GenLayerZoom extends GenLayer {
         int[] arrayOfInt2 = IntCache.a(k * 2 * (m * 2));
         int n = k << 1;
         for (int i1 = 0; i1 < m - 1; i1++) {
-            i2 = i1 << 1;
+            int i2 = i1 << 1;
             int i3 = i2 * n;
             int i4 = arrayOfInt1[(0 + (i1 + 0) * k)];
             int i5 = arrayOfInt1[(0 + (i1 + 1) * k)];
