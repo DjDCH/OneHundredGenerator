@@ -2,6 +2,7 @@ package com.djdch.bukkit.onehundredgenerator.mc100;
 
 import java.util.Random;
 
+import net.minecraft.server.Block;
 import net.minecraft.server.World;
 
 public class BiomeDecorator {
@@ -64,8 +65,10 @@ public class BiomeDecorator {
 
     protected void a() {
         b();
+        int i1;
         int i3;
-        for (int i1 = 0; i1 < this.H; i1++) {
+        int i2;
+        for (i1 = 0; i1 < this.H; i1++) {
             i2 = this.c + this.b.nextInt(16) + 8;
             i3 = this.d + this.b.nextInt(16) + 8;
             this.g.a(this.a, this.b, i2, this.a.f(i2, i3), i3);
@@ -87,7 +90,7 @@ public class BiomeDecorator {
         if (this.b.nextInt(10) == 0)
             i1++;
         int i4;
-        for (int i2 = 0; i2 < i1; i2++) {
+        for (i2 = 0; i2 < i1; i2++) {
             i3 = this.c + this.b.nextInt(16) + 8;
             i4 = this.d + this.b.nextInt(16) + 8;
             WorldGenerator localWorldGenerator = this.e.a(this.b);
