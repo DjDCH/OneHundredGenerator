@@ -10,12 +10,14 @@ public class BiomeCache {
     private long b = 0L;
 
     private LongHashMap c = new LongHashMap();
+    @SuppressWarnings("rawtypes")
     private List d = new ArrayList();
 
     public BiomeCache(WorldChunkManager paramWorldChunkManager) {
         this.a = paramWorldChunkManager;
     }
 
+    @SuppressWarnings("unchecked")
     public BiomeCacheBlock a(int paramInt1, int paramInt2) {
         paramInt1 >>= 4;
         paramInt2 >>= 4;
@@ -58,5 +60,9 @@ public class BiomeCache {
 
     public BiomeBase[] d(int paramInt1, int paramInt2) {
         return a(paramInt1, paramInt2).c;
+    }
+
+    public static WorldChunkManager a(BiomeCache paramBiomeCache) {
+        return paramBiomeCache.a;
     }
 }
