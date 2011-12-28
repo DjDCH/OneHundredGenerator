@@ -69,7 +69,7 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 
 //      this.F = paramInt;
         a[paramInt] = this;
-        this.B = a();
+        this.B = createBiomeDecorator();
 
         // Override values
         this.t = (byte) Block.GRASS.id;
@@ -96,8 +96,7 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
         this.E.add(new BiomeMeta(EntitySquid.class, 10, 4, 4));
     }
 
-    @Override
-    protected BiomeDecorator a() {
+    protected BiomeDecorator createBiomeDecorator() {
         return new BiomeDecorator(this);
     }
 
