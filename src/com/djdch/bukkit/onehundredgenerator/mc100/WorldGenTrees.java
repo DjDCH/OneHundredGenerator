@@ -1,6 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.server.Block;
@@ -12,7 +11,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.event.world.StructureGrowEvent;
-import org.bukkit.plugin.PluginManager;
 
 public class WorldGenTrees extends WorldGenerator {
     public WorldGenTrees(boolean flag) {
@@ -28,7 +26,8 @@ public class WorldGenTrees extends WorldGenerator {
         boolean flag = true;
 
         if ((j >= 1) && (j + l + 1 <= world.getHeight())) {
-            for (int i1 = j; i1 <= j + 1 + l; i1++) {
+            int i1;
+            for (i1 = j; i1 <= j + 1 + l; i1++) {
                 byte b0 = 1;
 
                 if (i1 == j) {
@@ -65,7 +64,8 @@ public class WorldGenTrees extends WorldGenerator {
                     event.getBlocks().add(dirtState);
                 }
 
-                for (int i2 = j - 3 + l; i2 <= j + l; i2++) {
+                int i2;
+                for (i2 = j - 3 + l; i2 <= j + l; i2++) {
                     int j1 = i2 - (j + l);
                     int k1 = 1 - j1 / 2;
 
@@ -75,7 +75,7 @@ public class WorldGenTrees extends WorldGenerator {
                         for (int k2 = k - k1; k2 <= k + k1; k2++) {
                             int l2 = k2 - k;
 
-                            if (((Math.abs(j2) == k1) && (Math.abs(l2) == k1) && ((random.nextInt(2) == 0) || (j1 == 0))) || (Block.o[world.getTypeId(l1, i2, k2)] != 0))
+                            if (((Math.abs(j2) == k1) && (Math.abs(l2) == k1) && ((random.nextInt(2) == 0) || (j1 == 0))) || (Block.o[world.getTypeId(l1, i2, k2)] != false))
                                 continue;
                             if (event == null) {
                                 a(world, l1, i2, k2, Block.LEAVES.id, 0);
