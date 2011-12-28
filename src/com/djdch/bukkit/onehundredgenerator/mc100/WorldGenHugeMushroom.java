@@ -1,6 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.server.Block;
@@ -12,7 +11,6 @@ import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.event.world.StructureGrowEvent;
 import org.bukkit.material.MaterialData;
-import org.bukkit.plugin.PluginManager;
 
 public class WorldGenHugeMushroom extends WorldGenerator {
     private int a = -1;
@@ -40,7 +38,8 @@ public class WorldGenHugeMushroom extends WorldGenerator {
         boolean flag = true;
 
         if ((j >= 1) && (j + i1 + 1 <= world.height)) {
-            for (int j1 = j; j1 <= j + 1 + i1; j1++) {
+            int j1;
+            for (j1 = j; j1 <= j + 1 + i1; j1++) {
                 byte b0 = 3;
 
                 if (j1 == j) {
@@ -84,7 +83,8 @@ public class WorldGenHugeMushroom extends WorldGenerator {
                 j2 = j + i1 - 3;
             }
 
-            for (int k1 = j2; k1 <= j + i1; k1++) {
+            int k1;
+            for (k1 = j2; k1 <= j + i1; k1++) {
                 int l1 = 1;
                 if (k1 < j + i1) {
                     l1++;
@@ -155,7 +155,7 @@ public class WorldGenHugeMushroom extends WorldGenerator {
                             l2 = 0;
                         }
 
-                        if (((l2 == 0) && (j < j + i1 - 1)) || (Block.o[world.getTypeId(i2, k1, k2)] != 0))
+                        if (((l2 == 0) && (j < j + i1 - 1)) || (Block.o[world.getTypeId(i2, k1, k2)] != false))
                             continue;
                         if (event == null) {
                             world.setRawTypeIdAndData(i2, k1, k2, Block.BIG_MUSHROOM_1.id + l, l2);
@@ -173,14 +173,14 @@ public class WorldGenHugeMushroom extends WorldGenerator {
 
             for (k1 = 0; k1 < i1; k1++) {
                 int l1 = world.getTypeId(i, j + k1, k);
-                if (Block.o[l1] != 0)
+                if (Block.o[l1] != false)
                     continue;
                 if (event == null) {
                     world.setRawTypeIdAndData(i, j + k1, k, Block.BIG_MUSHROOM_1.id + l, 10);
                 } else {
                     BlockState state = bukkitWorld.getBlockAt(i, j + k1, k).getState();
                     state.setTypeId(Block.BIG_MUSHROOM_1.id + l);
-                    state.setData(new MaterialData(Block.BIG_MUSHROOM_1.id + l, 10));
+                    state.setData(new MaterialData(Block.BIG_MUSHROOM_1.id + l, (byte) 10));
                     event.getBlocks().add(state);
                 }
 
