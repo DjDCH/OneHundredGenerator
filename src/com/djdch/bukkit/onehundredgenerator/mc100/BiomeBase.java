@@ -19,7 +19,7 @@ import net.minecraft.server.EntityZombie;
 import net.minecraft.server.EnumCreatureType;
 import net.minecraft.server.World;
 
-public class BiomeBase {
+public class BiomeBase extends net.minecraft.server.BiomeBase {
     public static final BiomeBase[] a = new BiomeBase[256];
 
     public static final BiomeBase OCEAN = new BiomeOcean(0).b(112).a("Ocean").b(-1.0F, 0.4F);
@@ -39,16 +39,16 @@ public class BiomeBase {
     public static final BiomeBase MUSHROOM_ISLAND = new BiomeMushrooms(14).b(16711935).a("MushroomIsland").a(0.9F, 1.0F).b(0.2F, 1.0F);
     public static final BiomeBase MUSHROOM_SHORE = new BiomeMushrooms(15).b(10486015).a("MushroomIslandShore").a(0.9F, 1.0F).b(-1.0F, 0.1F);
 
-    public String r;
-    public int s;
-    public byte t = (byte) Block.GRASS.id;
-    public byte u = (byte) Block.DIRT.id;
-    public int v = 5169201;
-    public float w = 0.1F;
-    public float x = 0.3F;
-    public float y = 0.5F;
-    public float z = 0.5F;
-    public int A = 16777215;
+//    public String r;
+//    public int s;
+//    public byte t = (byte)Block.GRASS.id;
+//    public byte u = (byte)Block.DIRT.id;
+//    public int v = 5169201;
+//    public float w = 0.1F;
+//    public float x = 0.3F;
+//    public float y = 0.5F;
+//    public float z = 0.5F;
+//    public int A = 16777215;
     public BiomeDecorator B;
     @SuppressWarnings({ "unchecked", "rawtypes" })
     protected List<BiomeMeta> C = new ArrayList();
@@ -56,18 +56,30 @@ public class BiomeBase {
     protected List<BiomeMeta> D = new ArrayList();
     @SuppressWarnings({ "unchecked", "rawtypes" })
     protected List<BiomeMeta> E = new ArrayList();
-    protected boolean K;
-    protected boolean L = true;
-    public final int F;
+//    private boolean K;
+//    private boolean L = true;
+//    public final int F;
     protected WorldGenTrees G = new WorldGenTrees(false);
     protected WorldGenBigTree H = new WorldGenBigTree(false);
     protected WorldGenForest I = new WorldGenForest(false);
     protected WorldGenSwampTree J = new WorldGenSwampTree();
 
     protected BiomeBase(int paramInt) {
-        this.F = paramInt;
+        super(paramInt);
+
+//      this.F = paramInt;
         a[paramInt] = this;
         this.B = createBiomeDecorator();
+
+        // Override values
+        this.t = (byte) Block.GRASS.id;
+        this.u = (byte) Block.DIRT.id;
+        this.v = 5169201;
+        this.w = 0.1F;
+        this.x = 0.3F;
+        this.y = 0.5F;
+        this.z = 0.5F;
+        this.A = 16777215;
 
         this.D.add(new BiomeMeta(EntitySheep.class, 12, 4, 4));
         this.D.add(new BiomeMeta(EntityPig.class, 10, 4, 4));
@@ -108,6 +120,7 @@ public class BiomeBase {
         return this;
     }
 
+    @Override
     public WorldGenerator a(Random paramRandom) {
         if (paramRandom.nextInt(10) == 0) {
             return this.H;
@@ -130,6 +143,7 @@ public class BiomeBase {
         return this;
     }
 
+    @Override
     public List<BiomeMeta> a(EnumCreatureType paramEnumCreatureType) {
         if (paramEnumCreatureType == EnumCreatureType.MONSTER)
             return this.C;
@@ -140,28 +154,30 @@ public class BiomeBase {
         return null;
     }
 
-    public boolean b() {
-        return this.K;
-    }
+//    public boolean b() {
+//        return this.K;
+//    }
 
-    public boolean c() {
-        if (this.K)
-            return false;
-        return this.L;
-    }
+//    public boolean c() {
+//        if (this.K)
+//            return false;
+//        return this.L;
+//    }
 
+    @Override
     public float d() {
         return 0.1F;
     }
 
-    public final int e() {
-        return (int) (this.z * 65536.0F);
-    }
+//    public final int e() {
+//        return (int) (this.z * 65536.0F);
+//    }
 
-    public final int f() {
-        return (int) (this.y * 65536.0F);
-    }
+//    public final int f() {
+//        return (int) (this.y * 65536.0F);
+//    }
 
+    @Override
     public void a(World paramWorld, Random paramRandom, int paramInt1, int paramInt2) {
         this.B.a(paramWorld, paramRandom, paramInt1, paramInt2);
     }
