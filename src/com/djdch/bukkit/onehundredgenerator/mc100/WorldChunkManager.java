@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import net.minecraft.server.ChunkCoordIntPair;
+import net.minecraft.server.ChunkPosition;
+import net.minecraft.server.IntCache;
 import net.minecraft.server.World;
 
 public class WorldChunkManager {
@@ -12,9 +15,11 @@ public class WorldChunkManager {
     private GenLayer d;
     private GenLayer e;
     private BiomeCache f = new BiomeCache(this);
+    @SuppressWarnings("rawtypes")
     private List g;
     public float[] a;
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     protected WorldChunkManager() {
         this.g = new ArrayList();
         this.g.add(BiomeBase.FOREST);
@@ -32,6 +37,7 @@ public class WorldChunkManager {
         this.e = arrayOfGenLayer[3];
     }
 
+    @SuppressWarnings("rawtypes")
     public List a() {
         return this.g;
     }
@@ -116,7 +122,7 @@ public class WorldChunkManager {
         }
 
         if ((paramBoolean) && (paramInt3 == 16) && (paramInt4 == 16) && ((paramInt1 & 0xF) == 0) && ((paramInt2 & 0xF) == 0)) {
-            localObject = this.f.d(paramInt1, paramInt2);
+            BiomeBase[] localObject = this.f.d(paramInt1, paramInt2);
             System.arraycopy(localObject, 0, paramArrayOfBiomeBase, 0, paramInt3 * paramInt4);
             return paramArrayOfBiomeBase;
         }
@@ -126,9 +132,10 @@ public class WorldChunkManager {
             paramArrayOfBiomeBase[i] = BiomeBase.a[localObject[i]];
         }
 
-        return (BiomeBase) paramArrayOfBiomeBase;
+        return (BiomeBase[]) paramArrayOfBiomeBase;
     }
 
+    @SuppressWarnings("rawtypes")
     public boolean a(int paramInt1, int paramInt2, int paramInt3, List paramList) {
         int i = paramInt1 - paramInt3 >> 2;
         int j = paramInt2 - paramInt3 >> 2;
@@ -148,6 +155,7 @@ public class WorldChunkManager {
         return true;
     }
 
+    @SuppressWarnings("rawtypes")
     public ChunkPosition a(int paramInt1, int paramInt2, int paramInt3, List paramList, Random paramRandom) {
         int i = paramInt1 - paramInt3 >> 2;
         int j = paramInt2 - paramInt3 >> 2;
