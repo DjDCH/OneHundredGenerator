@@ -6,6 +6,7 @@ import java.util.Random;
 import org.bukkit.generator.ChunkGenerator;
 
 import com.djdch.bukkit.onehundredgenerator.mc100.BiomeBase;
+import com.djdch.bukkit.onehundredgenerator.mc100.NoiseGeneratorOctaves;
 import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
 
 import net.minecraft.server.Block;
@@ -30,6 +31,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     public NoiseGeneratorOctaves b;
     public NoiseGeneratorOctaves c;
     private World s;
+    @SuppressWarnings("unused")
     private final boolean t;
     private double[] u;
     private double[] v = new double[256];
@@ -108,13 +110,14 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                             double d16 = d11;
                             double d17 = (d12 - d11) * d15;
                             d16 -= d17;
+                            int tmp586_585;
                             for (int i14 = 0; i14 < 4; i14++) {
                                 if ((d16 += d17) > 0.0D) {
                                     int tmp553_552 = (i12 + i13);
                                     i12 = tmp553_552;
                                     paramArrayOfByte[tmp553_552] = (byte) Block.STONE.id;
                                 } else if (i9 * 8 + i10 < i3) {
-                                    int tmp586_585 = (i12 + i13);
+                                    tmp586_585 = (i12 + i13);
                                     i12 = tmp586_585;
                                     paramArrayOfByte[tmp586_585] = (byte) Block.STATIONARY_WATER.id;
                                 } else {
@@ -217,13 +220,13 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         this.y = this.s.getWorldChunkManager().a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
         a(paramInt1, paramInt2, arrayOfByte, this.y);
 
-        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-        this.x.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-        if (this.t) {
-            this.f.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-            this.e.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-            this.d.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-        }
+//        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//        this.x.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//        if (this.t) {
+//            this.f.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//            this.e.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//            this.d.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//        }
 
         localChunk.initLighting();
 
@@ -363,11 +366,11 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
         boolean bool = false;
 
-        if (this.t) {
-            this.f.a(this.s, this.n, paramInt1, paramInt2);
-            bool = this.e.a(this.s, this.n, paramInt1, paramInt2);
-            this.d.a(this.s, this.n, paramInt1, paramInt2);
-        }
+//        if (this.t) {
+//            this.f.a(this.s, this.n, paramInt1, paramInt2);
+//            bool = this.e.a(this.s, this.n, paramInt1, paramInt2);
+//            this.d.a(this.s, this.n, paramInt1, paramInt2);
+//        }
         int i4;
         int i5;
         int i3;
@@ -386,14 +389,14 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                 new WorldGenLakes(Block.STATIONARY_LAVA.id).a(this.s, this.n, i3, i4, i5);
         }
 
-        for (i3 = 0; i3 < 8; i3++) {
-            i4 = i1 + this.n.nextInt(16) + 8;
-            i5 = this.n.nextInt(this.s.height);
-            int i6 = i2 + this.n.nextInt(16) + 8;
-            if (!new WorldGenDungeons().a(this.s, this.n, i4, i5, i6)) {
-                continue;
-            }
-        }
+//        for (i3 = 0; i3 < 8; i3++) {
+//            i4 = i1 + this.n.nextInt(16) + 8;
+//            i5 = this.n.nextInt(this.s.height);
+//            int i6 = i2 + this.n.nextInt(16) + 8;
+//            if (!new WorldGenDungeons().a(this.s, this.n, i4, i5, i6)) {
+//                continue;
+//            }
+//        }
         localBiomeBase.a(this.s, this.n, i1, i2);
 
         SpawnerCreature.a(this.s, localBiomeBase, i1 + 8, i2 + 8, 16, 16, this.n);
@@ -429,6 +432,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return true;
     }
 
+    @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
         WorldChunkManager localWorldChunkManager = this.s.getWorldChunkManager();
         if (localWorldChunkManager == null) {
