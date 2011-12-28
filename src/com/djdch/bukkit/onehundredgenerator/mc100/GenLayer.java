@@ -67,7 +67,7 @@ public abstract class GenLayer {
 
         localGenLayerZoomVoronoi.b(paramLong);
 
-        return (GenLayer) (GenLayer) (GenLayer) (GenLayer) (GenLayer) new GenLayer[] { localObject3, localGenLayerZoomVoronoi, localObject4, localObject5, localObject6 };
+        return (new GenLayer[] { (GenLayer) localObject3, localGenLayerZoomVoronoi, (GenLayer) localObject4, (GenLayer) localObject5, (GenLayer) localObject6 });
     }
 
     public GenLayer(long paramLong) {
