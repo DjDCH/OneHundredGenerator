@@ -1,5 +1,9 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class BiomeBase extends net.minecraft.server.BiomeBase {
     public static final BiomeBase[] a = new BiomeBase[256];
 
@@ -31,8 +35,11 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 //    public float z = 0.5F;
 //    public int A = 16777215;
     public BiomeDecorator B;
+    @SuppressWarnings("rawtypes")
     protected List C = new ArrayList();
+    @SuppressWarnings("rawtypes")
     protected List D = new ArrayList();
+    @SuppressWarnings("rawtypes")
     protected List E = new ArrayList();
 //    private boolean K;
 //    private boolean L = true;
