@@ -6,13 +6,19 @@ import java.util.List;
 public class IntCache {
     private static int a = 256;
 
+    @SuppressWarnings("rawtypes")
     private static List b = new ArrayList();
+    @SuppressWarnings("rawtypes")
     private static List c = new ArrayList();
 
+    @SuppressWarnings("rawtypes")
     private static List d = new ArrayList();
+    @SuppressWarnings("rawtypes")
     private static List e = new ArrayList();
 
+    @SuppressWarnings("unchecked")
     public static int[] a(int paramInt) {
+        int[] arrayOfInt;
         if (paramInt <= 256) {
             if (b.size() == 0) {
                 arrayOfInt = new int[256];
@@ -39,11 +45,12 @@ public class IntCache {
             e.add(arrayOfInt);
             return arrayOfInt;
         }
-        int[] arrayOfInt = (int[]) d.remove(d.size() - 1);
+        arrayOfInt = (int[]) d.remove(d.size() - 1);
         e.add(arrayOfInt);
         return arrayOfInt;
     }
 
+    @SuppressWarnings("unchecked")
     public static void a() {
         if (d.size() > 0)
             d.remove(d.size() - 1);
