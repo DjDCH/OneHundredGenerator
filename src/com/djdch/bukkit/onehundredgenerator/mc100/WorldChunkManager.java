@@ -126,9 +126,9 @@ public class WorldChunkManager {
             return paramArrayOfBiomeBase;
         }
 
-        Object localObject = this.rain.a(paramInt1, paramInt2, paramInt3, paramInt4);
+        int[] localInt = this.rain.a(paramInt1, paramInt2, paramInt3, paramInt4);
         for (int i = 0; i < paramInt3 * paramInt4; i++) {
-            paramArrayOfBiomeBase[i] = BiomeBase.a[localObject[i]];
+            paramArrayOfBiomeBase[i] = BiomeBase.a[localInt[i]];
         }
 
         return (BiomeBase[]) paramArrayOfBiomeBase;
