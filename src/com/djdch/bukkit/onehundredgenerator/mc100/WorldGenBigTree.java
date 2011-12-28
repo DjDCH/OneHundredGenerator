@@ -1,6 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.server.ItemStack;
@@ -9,11 +8,9 @@ import net.minecraft.server.World;
 
 import org.bukkit.BlockChangeDelegate;
 import org.bukkit.Bukkit;
-import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
 import org.bukkit.craftbukkit.CraftWorld;
 import org.bukkit.event.world.StructureGrowEvent;
-import org.bukkit.plugin.PluginManager;
 
 public class WorldGenBigTree extends WorldGenerator {
     static final byte[] a = { 2, 0, 0, 1, 2, 1 };
@@ -155,11 +152,9 @@ public class WorldGenBigTree extends WorldGenerator {
         float f = this.e / 2.0F;
         float f1 = this.e / 2.0F - i;
         float f2;
-        float f2;
         if (f1 == 0.0F) {
             f2 = f;
         } else {
-            float f2;
             if (Math.abs(f1) >= f)
                 f2 = 0.0F;
             else {
@@ -180,7 +175,7 @@ public class WorldGenBigTree extends WorldGenerator {
         for (int i1 = j + this.n; l < i1; l++) {
             float f = b(l - j);
 
-            a(i, l, k, f, 1, 18);
+            a(i, l, k, f, (byte) 1, 18);
         }
     }
 
@@ -188,7 +183,8 @@ public class WorldGenBigTree extends WorldGenerator {
         int[] aint2 = { 0, 0, 0 };
         byte b0 = 0;
 
-        for (byte b1 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
+        byte b1;
+        for (b1 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
             aint1[b0] -= aint[b0];
             if (Math.abs(aint2[b0]) > Math.abs(aint2[b1])) {
                 b1 = b0;
@@ -198,7 +194,6 @@ public class WorldGenBigTree extends WorldGenerator {
         if (aint2[b1] != 0) {
             byte b2 = a[b1];
             byte b3 = a[(b1 + 3)];
-            byte b4;
             byte b4;
             if (aint2[b1] > 0)
                 b4 = 1;
@@ -285,7 +280,8 @@ public class WorldGenBigTree extends WorldGenerator {
         int[] aint2 = { 0, 0, 0 };
         byte b0 = 0;
 
-        for (byte b1 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
+        byte b1;
+        for (b1 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
             aint1[b0] -= aint[b0];
             if (Math.abs(aint2[b0]) > Math.abs(aint2[b1])) {
                 b1 = b0;
@@ -297,7 +293,6 @@ public class WorldGenBigTree extends WorldGenerator {
         }
         byte b2 = a[b1];
         byte b3 = a[(b1 + 3)];
-        byte b4;
         byte b4;
         if (aint2[b1] > 0)
             b4 = 1;
