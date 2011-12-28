@@ -20,10 +20,9 @@ public class WorldGenTaiga1 extends WorldGenerator {
         int k1 = 1 + random.nextInt(j1 + 1);
         boolean flag = true;
 
+        int l1;
         if ((j >= 1) && (j + l + 1 <= world.getHeight())) {
-            for (int l1 = j; (l1 <= j + 1 + l) && (flag); l1++) {
-                boolean flag1 = true;
-                int l2;
+            for (l1 = j; (l1 <= j + 1 + l) && (flag); l1++) {
                 int l2;
                 if (l1 - j < i1)
                     l2 = 0;
@@ -52,14 +51,15 @@ public class WorldGenTaiga1 extends WorldGenerator {
                 world.setRawTypeId(i, j - 1, k, Block.DIRT.id);
                 int l2 = 0;
 
-                for (int i2 = j + l; i2 >= j + i1; i2--) {
+                int i2;
+                for (i2 = j + l; i2 >= j + i1; i2--) {
                     for (int j2 = i - l2; j2 <= i + l2; j2++) {
                         int k2 = j2 - i;
 
                         for (int i3 = k - l2; i3 <= k + l2; i3++) {
                             int j3 = i3 - k;
 
-                            if (((Math.abs(k2) != l2) || (Math.abs(j3) != l2) || (l2 <= 0)) && (Block.o[world.getTypeId(j2, i2, i3)] == 0)) {
+                            if (((Math.abs(k2) != l2) || (Math.abs(j3) != l2) || (l2 <= 0)) && (Block.o[world.getTypeId(j2, i2, i3)] == false)) {
                                 world.setRawTypeIdAndData(j2, i2, i3, Block.LEAVES.id, 1);
                             }
                         }
