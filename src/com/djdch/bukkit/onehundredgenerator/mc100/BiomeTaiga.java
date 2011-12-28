@@ -14,7 +14,7 @@ public class BiomeTaiga extends BiomeBase {
         this.B.B = 1;
     }
 
-    public WorldGenerator a(Random paramRandom) {
+    public WorldGenerator aa(Random paramRandom) {
         if (paramRandom.nextInt(3) == 0) {
             return new WorldGenTaiga1();
         }

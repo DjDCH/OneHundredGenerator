@@ -120,8 +120,9 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 //        return this;
 //    }
 
-    @Override
-    public WorldGenerator a(Random paramRandom) {
+//    @Override
+//    public WorldGenerator a(Random paramRandom) {
+    public WorldGenerator aa(Random paramRandom) {
         if (paramRandom.nextInt(10) == 0) {
             return this.H;
         }

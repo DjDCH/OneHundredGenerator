@@ -93,7 +93,7 @@ public class BiomeDecorator {
         for (i2 = 0; i2 < i1; i2++) {
             i3 = this.c + this.b.nextInt(16) + 8;
             i4 = this.d + this.b.nextInt(16) + 8;
-            WorldGenerator localWorldGenerator = this.e.a(this.b);
+            WorldGenerator localWorldGenerator = this.e.aa(this.b);
             localWorldGenerator.a(1.0D, 1.0D, 1.0D);
             localWorldGenerator.a(this.a, this.b, i3, this.a.getHighestBlockYAt(i3, i4), i4);
         }

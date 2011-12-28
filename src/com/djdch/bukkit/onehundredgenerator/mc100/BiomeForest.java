@@ -12,7 +12,7 @@ public class BiomeForest extends BiomeBase {
         this.B.B = 2;
     }
 
-    public WorldGenerator a(Random paramRandom) {
+    public WorldGenerator aa(Random paramRandom) {
         if (paramRandom.nextInt(5) == 0) {
             return this.I;
         }

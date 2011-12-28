@@ -16,7 +16,7 @@ public class BiomeSwamp extends BiomeBase {
         this.A = 14745456;
     }
 
-    public WorldGenerator a(Random paramRandom) {
+    public WorldGenerator aa(Random paramRandom) {
         return this.J;
     }
 }
