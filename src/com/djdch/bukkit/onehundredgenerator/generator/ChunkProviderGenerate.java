@@ -34,11 +34,11 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     private double[] u;
     private double[] v = new double[256];
 
-    private WorldGenBase w = new WorldGenCaves();
-    public WorldGenStronghold d = new WorldGenStronghold();
-    public WorldGenVillage e = new WorldGenVillage();
-    public WorldGenMineshaft f = new WorldGenMineshaft();
-    private WorldGenBase x = new WorldGenCanyon();
+//    private WorldGenBase w = new WorldGenCaves();
+//    public WorldGenStronghold d = new WorldGenStronghold();
+//    public WorldGenVillage e = new WorldGenVillage();
+//    public WorldGenMineshaft f = new WorldGenMineshaft();
+//    private WorldGenBase x = new WorldGenCanyon();
 
     private BiomeBase[] y;
     double[] g;
@@ -109,7 +109,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                             double d17 = (d12 - d11) * d15;
                             d16 -= d17;
                             for (int i14 = 0; i14 < 4; i14++) {
-                                if (d16 += d17 > 0.0D) {
+                                if ((d16 += d17) > 0.0D) {
                                     int tmp553_552 = (i12 + i13);
                                     i12 = tmp553_552;
                                     paramArrayOfByte[tmp553_552] = (byte) Block.STONE.id;
@@ -186,12 +186,12 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
                                 i5 = i4;
                                 if (i8 >= i1 - 1)
-                                    paramArrayOfByte[i9] = i6;
+                                    paramArrayOfByte[i9] = (byte) i6;
                                 else
-                                    paramArrayOfByte[i9] = i7;
+                                    paramArrayOfByte[i9] = (byte) i7;
                             } else if (i5 > 0) {
                                 i5--;
-                                paramArrayOfByte[i9] = i7;
+                                paramArrayOfByte[i9] = (byte) i7;
 
                                 if ((i5 == 0) && (i7 == Block.SAND.id)) {
                                     i5 = this.n.nextInt(4);
@@ -370,6 +370,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         }
         int i4;
         int i5;
+        int i3;
         if ((!bool) && (this.n.nextInt(4) == 0)) {
             i3 = i1 + this.n.nextInt(16) + 8;
             i4 = this.n.nextInt(this.s.height);
@@ -385,7 +386,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                 new WorldGenLakes(Block.STATIONARY_LAVA.id).a(this.s, this.n, i3, i4, i5);
         }
 
-        for (int i3 = 0; i3 < 8; i3++) {
+        for (i3 = 0; i3 < 8; i3++) {
             i4 = i1 + this.n.nextInt(16) + 8;
             i5 = this.n.nextInt(this.s.height);
             int i6 = i2 + this.n.nextInt(16) + 8;
