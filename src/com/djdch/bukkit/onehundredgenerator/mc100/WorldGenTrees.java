@@ -17,6 +17,7 @@ public class WorldGenTrees extends WorldGenerator {
         super(flag);
     }
 
+    @Override
     public boolean a(World world, Random random, int i, int j, int k) {
         return generate((BlockChangeDelegate) world, random, i, j, k, null, null, world.getWorld());
     }
