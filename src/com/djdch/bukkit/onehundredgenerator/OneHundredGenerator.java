@@ -64,7 +64,7 @@ public class OneHundredGenerator extends JavaPlugin {
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
         if (this.worldsSettings.containsKey(worldName)) {
             this.logger.info("Enabled for '" + worldName + "'");
-            return ((WorldConfiguration) this.worldsSettings.get(worldName)).ChunkProvider;
+            return ((WorldConfiguration) this.worldsSettings.get(worldName)).chunkProvider;
         }
 
         WorldConfiguration worldSetting = new WorldConfiguration(this);
@@ -90,7 +90,7 @@ public class OneHundredGenerator extends JavaPlugin {
 
             WorldChunkManager chunkManager = new WorldChunkManager(workWorld);
             workWorld.worldProvider.b = chunkManager;
-            worldSetting.ChunkProvider.Init(workWorld, workWorld.getSeed(), false);
+            worldSetting.chunkProvider.Init(workWorld, workWorld.getSeed(), false);
             worldSetting.isInit = true;
 
             System.out.println("PTM173: world seed is " + workWorld.getSeed());

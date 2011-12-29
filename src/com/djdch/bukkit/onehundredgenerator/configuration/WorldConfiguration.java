@@ -17,7 +17,7 @@ public class WorldConfiguration {
     /**
 	 *
 	 */
-    public ChunkProviderGenerate ChunkProvider;
+    public ChunkProviderGenerate chunkProvider;
 
     /**
 	 *
