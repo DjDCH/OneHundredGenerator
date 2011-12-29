@@ -56,12 +56,13 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     float[] l;
     int[][] m = new int[32][32];
     protected WorldConfiguration worldSettings;
+    protected WorldChunkManager worldChunkManager;
     protected ArrayList<BlockPopulator> populatorList;
 
-    public void Init(World paramWorld, long paramLong, boolean paramBoolean) {
+    public void Init(World paramWorld, WorldChunkManager paramWorldChunkManager, long paramLong, boolean paramBoolean) {
         this.s = paramWorld;
         this.t = paramBoolean;
-//        this.wcm = wcm;
+        this.worldChunkManager = paramWorldChunkManager;
 
         this.n = new Random(paramLong);
         this.o = new NoiseGeneratorOctaves(this.n, 16);
@@ -108,7 +109,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         int i5 = this.s.height / 8 + 1;
         int i6 = i1 + 1;
 
-        this.y = this.s.getWorldChunkManager().getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
+        this.y = this.worldChunkManager.getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
         this.u = a(this.u, paramInt1 * i1, 0, paramInt2 * i1, i4, i5, i6);
 
         for (int i7 = 0; i7 < i1; i7++)
@@ -142,7 +143,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                             double d16 = d11;
                             double d17 = (d12 - d11) * d15;
                             d16 -= d17;
-                            int tmp586_585;
+                            int tmp586_585 = 0;
                             for (int i14 = 0; i14 < 4; i14++) {
                                 if ((d16 += d17) > 0.0D) {
                                     int tmp553_552 = (i12 + i13);
@@ -249,7 +250,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         Chunk localChunk = new Chunk(this.s, arrayOfByte, paramInt1, paramInt2);
 
         a(paramInt1, paramInt2, arrayOfByte);
-        this.y = this.s.getWorldChunkManager().a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
+        this.y = this.worldChunkManager.a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
         a(paramInt1, paramInt2, arrayOfByte, this.y);
 
 //        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
@@ -389,7 +390,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         int i1 = paramInt1 * 16;
         int i2 = paramInt2 * 16;
 
-        BiomeBase localBiomeBase = this.s.getWorldChunkManager().getBiome(i1 + 16, i2 + 16);
+        BiomeBase localBiomeBase = this.worldChunkManager.getBiome(i1 + 16, i2 + 16);
 
         this.n.setSeed(this.s.getSeed());
         long l1 = this.n.nextLong() / 2L * 2L + 1L;
@@ -410,7 +411,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
             i3 = i1 + this.n.nextInt(16) + 8;
             i4 = this.n.nextInt(this.s.height);
             i5 = i2 + this.n.nextInt(16) + 8;
-            new WorldGenLakes(Block.STATIONARY_WATER.id).a(this.s, this.n, i3, i4, i5);
+            new WorldGenLakes(Block.STATIONARY_WATER.id, this.worldChunkManager).a(this.s, this.n, i3, i4, i5);
         }
 
         if ((!bool) && (this.n.nextInt(8) == 0)) {
@@ -418,7 +419,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
             i4 = this.n.nextInt(this.n.nextInt(this.s.height - 8) + 8);
             i5 = i2 + this.n.nextInt(16) + 8;
             if ((i4 < this.s.seaLevel) || (this.n.nextInt(10) == 0))
-                new WorldGenLakes(Block.STATIONARY_LAVA.id).a(this.s, this.n, i3, i4, i5);
+                new WorldGenLakes(Block.STATIONARY_LAVA.id, this.worldChunkManager).a(this.s, this.n, i3, i4, i5);
         }
 
 //        for (i3 = 0; i3 < 8; i3++) {
@@ -477,7 +478,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
     @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
-        WorldChunkManager localWorldChunkManager = this.s.getWorldChunkManager();
+        WorldChunkManager localWorldChunkManager = this.worldChunkManager;
         if (localWorldChunkManager == null) {
             return null;
         }

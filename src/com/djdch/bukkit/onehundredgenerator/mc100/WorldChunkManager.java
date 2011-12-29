@@ -8,7 +8,7 @@ import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.ChunkPosition;
 import net.minecraft.server.World;
 
-public class WorldChunkManager {
+public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
     private GenLayer temperature;
     private GenLayer rain;
     private GenLayer d;

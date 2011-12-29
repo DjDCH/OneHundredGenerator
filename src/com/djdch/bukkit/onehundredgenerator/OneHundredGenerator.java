@@ -90,7 +90,7 @@ public class OneHundredGenerator extends JavaPlugin {
 
             WorldChunkManager chunkManager = new WorldChunkManager(workWorld);
             workWorld.worldProvider.b = chunkManager;
-            worldSetting.chunkProvider.Init(workWorld, workWorld.getSeed(), false);
+            worldSetting.chunkProvider.Init(workWorld, chunkManager, workWorld.getSeed(), false);
             worldSetting.isInit = true;
 
             System.out.println("PTM173: world seed is " + workWorld.getSeed());
