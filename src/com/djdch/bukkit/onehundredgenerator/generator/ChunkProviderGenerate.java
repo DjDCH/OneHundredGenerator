@@ -239,10 +239,12 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
             }
     }
 
+    @Override
     public Chunk getChunkAt(int paramInt1, int paramInt2) {
         return getOrCreateChunk(paramInt1, paramInt2);
     }
 
+    @Override
     public Chunk getOrCreateChunk(int paramInt1, int paramInt2) {
         this.n.setSeed(paramInt1 * 341873128712L + paramInt2 * 132897987541L);
 
@@ -381,10 +383,12 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return paramArrayOfDouble;
     }
 
+    @Override
     public boolean isChunkLoaded(int paramInt1, int paramInt2) {
         return true;
     }
 
+    @Override
     public void getChunkAt(IChunkProvider paramIChunkProvider, int paramInt1, int paramInt2) {
         BlockSand.instaFall = true;
         int i1 = paramInt1 * 16;
@@ -453,22 +457,27 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         BlockSand.instaFall = false;
     }
 
+    @Override
     public boolean saveChunks(boolean paramBoolean, IProgressUpdate paramIProgressUpdate) {
         return true;
     }
 
+    @Override
     public boolean unloadChunks() {
         return false;
     }
 
+    @Override
     public boolean canSave() {
         return true;
     }
 
+    @Override
     public List<BlockPopulator> getDefaultPopulators(org.bukkit.World world) {
         return this.populatorList;
     }
 
+    @Override
     public boolean canSpawn(org.bukkit.World world, int x, int z) {
         this.worldSettings.plugin.WorldInit(world);
 
@@ -476,6 +485,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return (i != 0) && (Block.byId[i].material.isSolid());
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
         WorldChunkManager localWorldChunkManager = this.worldChunkManager;
@@ -489,6 +499,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return localBiomeBase.a(paramEnumCreatureType);
     }
 
+    @Override
     public ChunkPosition a(World paramWorld, String paramString, int paramInt1, int paramInt2, int paramInt3) {
 //        if (("Stronghold".equals(paramString)) && (this.d != null)) {
 //            return this.d.a(paramWorld, paramInt1, paramInt2, paramInt3);
