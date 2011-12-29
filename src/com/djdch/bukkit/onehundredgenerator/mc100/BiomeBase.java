@@ -24,7 +24,8 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
 
     public static final BiomeBase OCEAN = new BiomeOcean(0).b(112).a("Ocean").b(-1.0F, 0.4F);
     public static final BiomeBase PLAINS = new BiomePlains(1).b(9286496).a("Plains").a(0.8F, 0.4F);
-    public static final BiomeBase DESERT = new BiomeDesert(2).b(16421912).a("Desert").g().a(2.0F, 0.0F).b(0.1F, 0.2F);
+    public static final BiomeBase DESERT = new BiomeDesert(2).b(16421912).a("Desert").a(2.0F, 0.0F).b(0.1F, 0.2F);
+//    public static final BiomeBase DESERT = new BiomeDesert(2).b(16421912).a("Desert").g().a(2.0F, 0.0F).b(0.1F, 0.2F);
     public static final BiomeBase EXTREME_HILLS = new BiomeBigHills(3).b(6316128).a("Extreme Hills").b(0.2F, 1.8F).a(0.2F, 0.3F);
     public static final BiomeBase FOREST = new BiomeForest(4).b(353825).a("Forest").a(5159473).a(0.7F, 0.8F);
     public static final BiomeBase TAIGA = new BiomeTaiga(5).b(747097).a("Taiga").a(5159473).a(0.3F, 0.8F).b(0.1F, 0.4F);
