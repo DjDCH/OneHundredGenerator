@@ -239,35 +239,6 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
             }
     }
 
-    @Override
-    public Chunk getChunkAt(int paramInt1, int paramInt2) {
-        return getOrCreateChunk(paramInt1, paramInt2);
-    }
-
-    @Override
-    public Chunk getOrCreateChunk(int paramInt1, int paramInt2) {
-        this.n.setSeed(paramInt1 * 341873128712L + paramInt2 * 132897987541L);
-
-        byte[] arrayOfByte = new byte[16 * this.s.height * 16];
-        Chunk localChunk = new Chunk(this.s, arrayOfByte, paramInt1, paramInt2);
-
-        a(paramInt1, paramInt2, arrayOfByte);
-        this.y = this.worldChunkManager.a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
-        a(paramInt1, paramInt2, arrayOfByte, this.y);
-
-//        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-//        this.x.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-//        if (this.t) {
-//            this.f.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-//            this.e.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-//            this.d.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
-//        }
-
-        localChunk.initLighting();
-
-        return localChunk;
-    }
-
     private double[] a(double[] paramArrayOfDouble, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6) {
         if (paramArrayOfDouble == null) {
             paramArrayOfDouble = new double[paramInt4 * paramInt5 * paramInt6];
@@ -389,6 +360,35 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     }
 
     @Override
+    public Chunk getOrCreateChunk(int paramInt1, int paramInt2) {
+        this.n.setSeed(paramInt1 * 341873128712L + paramInt2 * 132897987541L);
+
+        byte[] arrayOfByte = new byte[16 * this.s.height * 16];
+        Chunk localChunk = new Chunk(this.s, arrayOfByte, paramInt1, paramInt2);
+
+        a(paramInt1, paramInt2, arrayOfByte);
+        this.y = this.worldChunkManager.a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
+        a(paramInt1, paramInt2, arrayOfByte, this.y);
+
+//        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//        this.x.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//        if (this.t) {
+//            this.f.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//            this.e.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//            this.d.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
+//        }
+
+        localChunk.initLighting();
+
+        return localChunk;
+    }
+
+    @Override
+    public Chunk getChunkAt(int paramInt1, int paramInt2) {
+        return getOrCreateChunk(paramInt1, paramInt2);
+    }
+
+    @Override
     public void getChunkAt(IChunkProvider paramIChunkProvider, int paramInt1, int paramInt2) {
         BlockSand.instaFall = true;
         int i1 = paramInt1 * 16;
@@ -473,19 +473,6 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     }
 
     @Override
-    public List<BlockPopulator> getDefaultPopulators(org.bukkit.World world) {
-        return this.populatorList;
-    }
-
-    @Override
-    public boolean canSpawn(org.bukkit.World world, int x, int z) {
-        this.worldSettings.plugin.WorldInit(world);
-
-        int i = ((CraftWorld) world).getHandle().a(x, z);
-        return (i != 0) && (Block.byId[i].material.isSolid());
-    }
-
-    @Override
     @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
         WorldChunkManager localWorldChunkManager = this.worldChunkManager;
@@ -510,5 +497,18 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     @Override
     public byte[] generate(org.bukkit.World arg0, Random arg1, int arg2, int arg3) {
         return null;
+    }
+
+    @Override
+    public boolean canSpawn(org.bukkit.World world, int x, int z) {
+        this.worldSettings.plugin.WorldInit(world);
+
+        int i = ((CraftWorld) world).getHandle().a(x, z);
+        return (i != 0) && (Block.byId[i].material.isSolid());
+    }
+
+    @Override
+    public List<BlockPopulator> getDefaultPopulators(org.bukkit.World world) {
+        return this.populatorList;
     }
 }
