@@ -80,7 +80,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         this.worldSettings = worldSettings;
         this.worldSettings.chunkProvider = this;
         this.populatorList = new ArrayList();
-        this.populatorList.add(new ObjectSpawner(this.worldSettings, this));
+        this.populatorList.add(new ObjectSpawner(this));
     }
 
 //    public ChunkProviderGenerate(World paramWorld, long paramLong, boolean paramBoolean) {
