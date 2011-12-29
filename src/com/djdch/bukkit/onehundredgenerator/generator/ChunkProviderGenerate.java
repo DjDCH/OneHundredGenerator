@@ -489,9 +489,9 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     }
 
     public ChunkPosition a(World paramWorld, String paramString, int paramInt1, int paramInt2, int paramInt3) {
-        if (("Stronghold".equals(paramString)) && (this.d != null)) {
-            return this.d.a(paramWorld, paramInt1, paramInt2, paramInt3);
-        }
+//        if (("Stronghold".equals(paramString)) && (this.d != null)) {
+//            return this.d.a(paramWorld, paramInt1, paramInt2, paramInt3);
+//        }
         return null;
     }
 }
