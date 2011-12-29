@@ -1,10 +1,14 @@
 package com.djdch.bukkit.onehundredgenerator.generator;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import org.bukkit.craftbukkit.CraftWorld;
+import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 
+import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
 import com.djdch.bukkit.onehundredgenerator.mc100.BiomeBase;
 import com.djdch.bukkit.onehundredgenerator.mc100.NoiseGeneratorOctaves;
 import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
@@ -33,7 +37,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     public NoiseGeneratorOctaves c;
     private World s;
     @SuppressWarnings("unused")
-    private final boolean t;
+    private boolean t;
     private double[] u;
     private double[] v = new double[256];
 
@@ -51,10 +55,13 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     double[] k;
     float[] l;
     int[][] m = new int[32][32];
+    protected WorldConfiguration worldSettings;
+    protected ArrayList<BlockPopulator> populatorList;
 
-    public ChunkProviderGenerate(World paramWorld, long paramLong, boolean paramBoolean) {
+    public void Init(World paramWorld, long paramLong, boolean paramBoolean) {
         this.s = paramWorld;
         this.t = paramBoolean;
+//        this.wcm = wcm;
 
         this.n = new Random(paramLong);
         this.o = new NoiseGeneratorOctaves(this.n, 16);
@@ -67,6 +74,30 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
         this.c = new NoiseGeneratorOctaves(this.n, 8);
     }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public ChunkProviderGenerate(WorldConfiguration worldSettings) {
+        this.worldSettings = worldSettings;
+        this.worldSettings.chunkProvider = this;
+        this.populatorList = new ArrayList();
+        this.populatorList.add(new ObjectSpawner(this.worldSettings, this));
+    }
+
+//    public ChunkProviderGenerate(World paramWorld, long paramLong, boolean paramBoolean) {
+//        this.s = paramWorld;
+//        this.t = paramBoolean;
+//
+//        this.n = new Random(paramLong);
+//        this.o = new NoiseGeneratorOctaves(this.n, 16);
+//        this.p = new NoiseGeneratorOctaves(this.n, 16);
+//        this.q = new NoiseGeneratorOctaves(this.n, 8);
+//        this.r = new NoiseGeneratorOctaves(this.n, 4);
+//
+//        this.a = new NoiseGeneratorOctaves(this.n, 10);
+//        this.b = new NoiseGeneratorOctaves(this.n, 16);
+//
+//        this.c = new NoiseGeneratorOctaves(this.n, 8);
+//    }
 
     public void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte) {
         int i1 = 4;
@@ -431,6 +462,17 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
     public boolean canSave() {
         return true;
+    }
+
+    public List<BlockPopulator> getDefaultPopulators(org.bukkit.World world) {
+        return this.populatorList;
+    }
+
+    public boolean canSpawn(org.bukkit.World world, int x, int z) {
+        this.worldSettings.plugin.WorldInit(world);
+
+        int i = ((CraftWorld) world).getHandle().a(x, z);
+        return (i != 0) && (Block.byId[i].material.isSolid());
     }
 
     @SuppressWarnings("rawtypes")
