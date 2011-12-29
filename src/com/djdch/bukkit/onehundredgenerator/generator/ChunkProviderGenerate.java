@@ -495,8 +495,8 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     }
 
     @Override
-    public byte[] generate(org.bukkit.World arg0, Random arg1, int arg2, int arg3) {
-        return null;
+    public byte[] generate(org.bukkit.World paramWorld, Random paramRandom, int paramInt1, int paramInt2) {
+        return getOrCreateChunk(paramInt1, paramInt2).b;
     }
 
     @Override
