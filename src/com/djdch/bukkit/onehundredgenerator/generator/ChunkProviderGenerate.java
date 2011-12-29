@@ -181,7 +181,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         double d1 = 0.03125D;
         this.v = this.r.a(this.v, paramInt1 * 16, paramInt2 * 16, 0, 16, 16, 1, d1 * 2.0D, d1 * 2.0D, d1 * 2.0D);
 
-        float[] arrayOfFloat = this.s.getWorldChunkManager().a(paramInt1 * 16, paramInt2 * 16, 16, 16);
+        float[] arrayOfFloat = this.worldChunkManager.a(paramInt1 * 16, paramInt2 * 16, 16, 16);
 
         for (int i2 = 0; i2 < 16; i2++)
             for (int i3 = 0; i3 < 16; i3++) {
