@@ -100,75 +100,79 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 //        this.c = new NoiseGeneratorOctaves(this.n, 8);
 //    }
 
-    public void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte) {
-        int i1 = 4;
+    public void generateTerrain(int paramInt1, int paramInt2, byte paramArrayOfByte[]) {
+        byte b1 = 4;
         int i2 = this.s.height / 8;
         int i3 = this.s.seaLevel;
 
-        int i4 = i1 + 1;
+        int i4 = b1 + 1;
         int i5 = this.s.height / 8 + 1;
-        int i6 = i1 + 1;
+        int i6 = b1 + 1;
 
         this.y = this.worldChunkManager.getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
-        this.u = a(this.u, paramInt1 * i1, 0, paramInt2 * i1, i4, i5, i6);
+        this.u = a(this.u, paramInt1 * b1, 0, paramInt2 * b1, i4, i5, i6);
 
-        for (int i7 = 0; i7 < i1; i7++)
-            for (int i8 = 0; i8 < i1; i8++)
+        for (int i7 = 0; i7 < b1; i7++) {
+            for (int i8 = 0; i8 < b1; i8++) {
                 for (int i9 = 0; i9 < i2; i9++) {
-                    double d1 = 0.125D;
-                    double d2 = this.u[(((i7 + 0) * i6 + (i8 + 0)) * i5 + (i9 + 0))];
-                    double d3 = this.u[(((i7 + 0) * i6 + (i8 + 1)) * i5 + (i9 + 0))];
-                    double d4 = this.u[(((i7 + 1) * i6 + (i8 + 0)) * i5 + (i9 + 0))];
-                    double d5 = this.u[(((i7 + 1) * i6 + (i8 + 1)) * i5 + (i9 + 0))];
+                    double d = 0.125D;
 
-                    double d6 = (this.u[(((i7 + 0) * i6 + (i8 + 0)) * i5 + (i9 + 1))] - d2) * d1;
-                    double d7 = (this.u[(((i7 + 0) * i6 + (i8 + 1)) * i5 + (i9 + 1))] - d3) * d1;
-                    double d8 = (this.u[(((i7 + 1) * i6 + (i8 + 0)) * i5 + (i9 + 1))] - d4) * d1;
-                    double d9 = (this.u[(((i7 + 1) * i6 + (i8 + 1)) * i5 + (i9 + 1))] - d5) * d1;
+                    double d1 = this.u[((i7 + 0) * i6 + (i8 + 0)) * i5 + (i9 + 0)];
+                    double d2 = this.u[((i7 + 0) * i6 + (i8 + 1)) * i5 + (i9 + 0)];
+                    double d3 = this.u[((i7 + 1) * i6 + (i8 + 0)) * i5 + (i9 + 0)];
+                    double d4 = this.u[((i7 + 1) * i6 + (i8 + 1)) * i5 + (i9 + 0)];
+
+                    double d5 = (this.u[((i7 + 0) * i6 + (i8 + 0)) * i5 + (i9 + 1)] - d1) * d;
+                    double d6 = (this.u[((i7 + 0) * i6 + (i8 + 1)) * i5 + (i9 + 1)] - d2) * d;
+                    double d7 = (this.u[((i7 + 1) * i6 + (i8 + 0)) * i5 + (i9 + 1)] - d3) * d;
+                    double d8 = (this.u[((i7 + 1) * i6 + (i8 + 1)) * i5 + (i9 + 1)] - d4) * d;
 
                     for (int i10 = 0; i10 < 8; i10++) {
-                        double d10 = 0.25D;
+                        double d9 = 0.25D;
 
+                        double d10 = d1;
                         double d11 = d2;
-                        double d12 = d3;
-                        double d13 = (d4 - d2) * d10;
-                        double d14 = (d5 - d3) * d10;
+                        double d12 = (d3 - d1) * d9;
+                        double d13 = (d4 - d2) * d9;
 
                         for (int i11 = 0; i11 < 4; i11++) {
                             int i12 = i11 + i7 * 4 << this.s.heightBitsPlusFour | 0 + i8 * 4 << this.s.heightBits | i9 * 8 + i10;
                             int i13 = 1 << this.s.heightBits;
-                            i12 -= i13;
-                            double d15 = 0.25D;
 
-                            double d16 = d11;
-                            double d17 = (d12 - d11) * d15;
-                            d16 -= d17;
-                            int tmp586_585 = 0;
+                            i12 -= i13;
+                            double d14 = 0.25D;
+                            double d15 = d10;
+                            double d16 = (d11 - d10) * d14;
+                            d15 -= d16;
+
                             for (int i14 = 0; i14 < 4; i14++) {
-                                if ((d16 += d17) > 0.0D) {
-                                    int tmp553_552 = (i12 + i13);
-                                    i12 = tmp553_552;
-                                    paramArrayOfByte[tmp553_552] = (byte) Block.STONE.id;
-                                } else if (i9 * 8 + i10 < i3) {
-                                    tmp586_585 = (i12 + i13);
-                                    i12 = tmp586_585;
-                                    paramArrayOfByte[tmp586_585] = (byte) Block.STATIONARY_WATER.id;
+                                if ((d15 += d16) > 0.0D) {
+                                    paramArrayOfByte[i12 += i13] = (byte) Block.STONE.id;
+                                    continue;
+                                }
+                                if (i9 * 8 + i10 < i3) {
+                                    paramArrayOfByte[i12 += i13] = (byte) Block.STATIONARY_WATER.id;
                                 } else {
-                                    int tmp606_605 = (i12 + i13);
-                                    i12 = tmp606_605;
-                                    paramArrayOfByte[tmp606_605] = 0;
+                                    paramArrayOfByte[i12 += i13] = 0;
                                 }
                             }
+
+                            d10 += d12;
                             d11 += d13;
-                            tmp586_585 += d14;
                         }
 
+                        d1 += d5;
                         d2 += d6;
                         d3 += d7;
                         d4 += d8;
-                        d5 += d9;
                     }
+
                 }
+
+            }
+
+        }
+
     }
 
     public void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte, BiomeBase[] paramArrayOfBiomeBase) {
@@ -366,7 +370,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         byte[] arrayOfByte = new byte[16 * this.s.height * 16];
         Chunk localChunk = new Chunk(this.s, arrayOfByte, paramInt1, paramInt2);
 
-        a(paramInt1, paramInt2, arrayOfByte);
+        generateTerrain(paramInt1, paramInt2, arrayOfByte);
         this.y = this.worldChunkManager.a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
         a(paramInt1, paramInt2, arrayOfByte, this.y);
 
