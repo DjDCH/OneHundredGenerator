@@ -8,6 +8,7 @@ import org.bukkit.generator.ChunkGenerator;
 import com.djdch.bukkit.onehundredgenerator.mc100.BiomeBase;
 import com.djdch.bukkit.onehundredgenerator.mc100.NoiseGeneratorOctaves;
 import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
+import com.djdch.bukkit.onehundredgenerator.mc100.WorldGenLakes;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockSand;
