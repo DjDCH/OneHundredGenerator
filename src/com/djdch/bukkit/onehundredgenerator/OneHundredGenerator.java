@@ -12,7 +12,6 @@ import org.bukkit.generator.ChunkGenerator;
 import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
 import com.djdch.bukkit.onehundredgenerator.generator.ChunkProviderGenerate;
 import com.djdch.bukkit.onehundredgenerator.listener.WorldListener;
-import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
 import com.djdch.bukkit.utils.Logger;
 
 /**
@@ -88,10 +87,8 @@ public class OneHundredGenerator extends JavaPlugin {
             }
             net.minecraft.server.World workWorld = ((CraftWorld) world).getHandle();
 
-            WorldChunkManager chunkManager = new WorldChunkManager(workWorld);
             worldSetting.mapStructures = true;
-            workWorld.worldProvider.b = chunkManager;
-            worldSetting.chunkProvider.Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.mapStructures);
+            worldSetting.chunkProvider.Init(workWorld, null, workWorld.getSeed(), worldSetting.mapStructures);
             worldSetting.isInit = true;
 
             this.logger.info("World seed is: " + workWorld.getSeed());
