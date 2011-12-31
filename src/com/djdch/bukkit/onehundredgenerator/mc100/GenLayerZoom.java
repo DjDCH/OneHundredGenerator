@@ -2,7 +2,7 @@ package com.djdch.bukkit.onehundredgenerator.mc100;
 
 /* NOT working version of GenLayerZoom class. */
 public class GenLayerZoom extends GenLayer {
-    public GenLayerZoom(long paramLong, net.minecraft.server.GenLayer paramGenLayer) {
+    public GenLayerZoom(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);
         this.a = paramGenLayer;
     }
@@ -120,12 +120,12 @@ public class GenLayerZoom extends GenLayer {
         }
     }
 
-    public static net.minecraft.server.GenLayer a(long paramLong, net.minecraft.server.GenLayer paramGenLayer, int paramInt) {
+    public static GenLayer a(long paramLong, GenLayer paramGenLayer, int paramInt) {
         Object localObject = paramGenLayer;
         for (int i = 0; i < paramInt; i++) {
-            localObject = new GenLayerZoom(paramLong + i, (net.minecraft.server.GenLayer) localObject);
+            localObject = new GenLayerZoom(paramLong + i, (GenLayer) localObject);
         }
 
-        return (net.minecraft.server.GenLayer) localObject;
+        return (GenLayer) localObject;
     }
 }

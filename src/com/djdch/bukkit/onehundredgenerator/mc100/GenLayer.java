@@ -1,12 +1,12 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-public abstract class GenLayer extends net.minecraft.server.GenLayer {
+public abstract class GenLayer {
     private long b;
-    protected net.minecraft.server.GenLayer a;
+    protected GenLayer a;
     private long c;
     private long d;
 
-    public static net.minecraft.server.GenLayer[] a(long paramLong) {
+    public static GenLayer[] a(long paramLong) {
         Object localObject1 = new LayerIsland(1L);
         localObject1 = new GenLayerZoomFuzzy(2000L, (GenLayer) localObject1);
         localObject1 = new GenLayerIsland(1L, (GenLayer) localObject1);
@@ -44,9 +44,9 @@ public abstract class GenLayer extends net.minecraft.server.GenLayer {
             if (j == 0) {
                 localObject3 = new GenLayerMushroomShore(1000L, (GenLayer) localObject3);
             }
-            localObject4 = new GenLayerSmoothZoom(1000 + j, (net.minecraft.server.GenLayer) localObject4);
+            localObject4 = new GenLayerSmoothZoom(1000 + j, (GenLayer) localObject4);
             localObject4 = new GenLayerTemperatureMix2((GenLayer) localObject4, (GenLayer) localObject3, j);
-            localObject5 = new GenLayerSmoothZoom(1000 + j, (net.minecraft.server.GenLayer) localObject5);
+            localObject5 = new GenLayerSmoothZoom(1000 + j, (GenLayer) localObject5);
             localObject5 = new GenLayerDownfallMix((GenLayer) localObject5, (GenLayer) localObject3, j);
         }
 
@@ -56,23 +56,21 @@ public abstract class GenLayer extends net.minecraft.server.GenLayer {
 
         Object localObject6 = localObject3;
 
-        localObject4 = GenLayerSmoothZoom.a(1000L, (net.minecraft.server.GenLayer) localObject4, 2);
-        localObject5 = GenLayerSmoothZoom.a(1000L, (net.minecraft.server.GenLayer) localObject5, 2);
+        localObject4 = GenLayerSmoothZoom.a(1000L, (GenLayer) localObject4, 2);
+        localObject5 = GenLayerSmoothZoom.a(1000L, (GenLayer) localObject5, 2);
 
-        GenLayerZoomVoronoi localGenLayerZoomVoronoi = new GenLayerZoomVoronoi(10L, (net.minecraft.server.GenLayer) localObject3);
+        GenLayerZoomVoronoi localGenLayerZoomVoronoi = new GenLayerZoomVoronoi(10L, (GenLayer) localObject3);
 
-        ((net.minecraft.server.GenLayer) localObject3).b(paramLong);
-        ((net.minecraft.server.GenLayer) localObject4).b(paramLong);
-        ((net.minecraft.server.GenLayer) localObject5).b(paramLong);
+        ((GenLayer) localObject3).b(paramLong);
+        ((GenLayer) localObject4).b(paramLong);
+        ((GenLayer) localObject5).b(paramLong);
 
         localGenLayerZoomVoronoi.b(paramLong);
 
-        return (new net.minecraft.server.GenLayer[] { (net.minecraft.server.GenLayer) localObject3, localGenLayerZoomVoronoi, (net.minecraft.server.GenLayer) localObject4, (net.minecraft.server.GenLayer) localObject5, (net.minecraft.server.GenLayer) localObject6 });
+        return (new GenLayer[] { (GenLayer) localObject3, localGenLayerZoomVoronoi, (GenLayer) localObject4, (GenLayer) localObject5, (GenLayer) localObject6 });
     }
 
     public GenLayer(long paramLong) {
-        super(paramLong);
-
         this.d = paramLong;
         this.d *= (this.d * 6364136223846793005L + 1442695040888963407L);
         this.d += paramLong;
@@ -114,4 +112,6 @@ public abstract class GenLayer extends net.minecraft.server.GenLayer {
         this.c += this.b;
         return i;
     }
+
+    public abstract int[] a(int paramInt1, int paramInt2, int paramInt3, int paramInt4);
 }

@@ -1,7 +1,7 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
 public class GenLayerZoomVoronoi extends GenLayer {
-    public GenLayerZoomVoronoi(long paramLong, net.minecraft.server.GenLayer paramGenLayer) {
+    public GenLayerZoomVoronoi(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);
         this.a = paramGenLayer;
     }

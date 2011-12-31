@@ -1,7 +1,7 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
 public class GenLayerSmoothZoom extends GenLayer {
-    public GenLayerSmoothZoom(long paramLong, net.minecraft.server.GenLayer localObject4) {
+    public GenLayerSmoothZoom(long paramLong, GenLayer localObject4) {
         super(paramLong);
         this.a = localObject4;
     }
@@ -46,11 +46,11 @@ public class GenLayerSmoothZoom extends GenLayer {
         return arrayOfInt3;
     }
 
-    public static net.minecraft.server.GenLayer a(long paramLong, net.minecraft.server.GenLayer localObject4, int paramInt) {
+    public static GenLayer a(long paramLong, GenLayer localObject4, int paramInt) {
         Object localObject = localObject4;
         for (int i = 0; i < paramInt; i++) {
-            localObject = new GenLayerSmoothZoom(paramLong + i, (net.minecraft.server.GenLayer) localObject);
+            localObject = new GenLayerSmoothZoom(paramLong + i, (GenLayer) localObject);
         }
-        return (net.minecraft.server.GenLayer) localObject;
+        return (GenLayer) localObject;
     }
 }

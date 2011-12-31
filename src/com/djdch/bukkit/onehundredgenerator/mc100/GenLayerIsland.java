@@ -3,7 +3,7 @@ package com.djdch.bukkit.onehundredgenerator.mc100;
 import net.minecraft.server.BiomeBase;
 
 public class GenLayerIsland extends GenLayer {
-    public GenLayerIsland(long paramLong, net.minecraft.server.GenLayer paramGenLayer) {
+    public GenLayerIsland(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);
         this.a = paramGenLayer;
     }
