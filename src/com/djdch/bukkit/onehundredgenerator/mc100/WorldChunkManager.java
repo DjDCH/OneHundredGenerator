@@ -8,7 +8,6 @@ import net.minecraft.server.BiomeBase;
 import net.minecraft.server.BiomeCache;
 import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.ChunkPosition;
-import net.minecraft.server.GenLayer;
 import net.minecraft.server.World;
 
 public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
