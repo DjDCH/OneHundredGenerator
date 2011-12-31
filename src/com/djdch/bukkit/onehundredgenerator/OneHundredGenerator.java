@@ -48,14 +48,14 @@ public class OneHundredGenerator extends JavaPlugin {
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.WORLD_INIT, this.worldListener, Event.Priority.High, this);
 
-        this.logger.info("Version " + getDescription().getVersion() + " enable.");
+        this.logger.info("Version " + getDescription().getVersion() + " enable");
     }
 
     /**
      * Method execute when the plugin is disable.
      */
     public void onDisable() {
-        this.logger.info("Version " + getDescription().getVersion() + " disable.");
+        this.logger.info("Version " + getDescription().getVersion() + " disable");
     }
 
     /**
@@ -63,7 +63,7 @@ public class OneHundredGenerator extends JavaPlugin {
 	 */
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
         if (this.worldsSettings.containsKey(worldName)) {
-            this.logger.info("Enabled for '" + worldName + "'");
+            this.logger.info("World '" + worldName + "' enable");
             return ((WorldConfiguration) this.worldsSettings.get(worldName)).chunkProvider;
         }
 
@@ -72,7 +72,7 @@ public class OneHundredGenerator extends JavaPlugin {
 
         ChunkProviderGenerate prov = new ChunkProviderGenerate(worldSetting);
 
-        this.logger.info("Enabled for '" + worldName + "'");
+        this.logger.info("World '" + worldName + "' enable");
         return prov;
     }
 
@@ -93,7 +93,7 @@ public class OneHundredGenerator extends JavaPlugin {
             worldSetting.chunkProvider.Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.mapStructures);
             worldSetting.isInit = true;
 
-            this.logger.info("World seed is: " + workWorld.getSeed());
+            this.logger.info("World '" + world.getName() + "' init (Seed: " + workWorld.getSeed() + ")");
         }
     }
 
