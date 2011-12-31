@@ -9,6 +9,7 @@ import org.bukkit.generator.BlockPopulator;
 import org.bukkit.generator.ChunkGenerator;
 
 import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
+import com.djdch.bukkit.onehundredgenerator.mc100.NoiseGeneratorOctaves;
 
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
@@ -20,7 +21,6 @@ import net.minecraft.server.EnumCreatureType;
 import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.NoiseGeneratorOctaves;
 import net.minecraft.server.SpawnerCreature;
 import net.minecraft.server.World;
 import net.minecraft.server.WorldChunkManager;
