@@ -10,34 +10,34 @@ public abstract class GenLayer {
         Object localObject1 = new LayerIsland(1L);
         localObject1 = new GenLayerZoomFuzzy(2000L, (GenLayer) localObject1);
         localObject1 = new GenLayerIsland(1L, (GenLayer) localObject1);
-        localObject1 = new GenLayerZoom2(2001L, (GenLayer) localObject1);
+        localObject1 = new GenLayerZoom(2001L, (GenLayer) localObject1);
         localObject1 = new GenLayerIsland(2L, (GenLayer) localObject1);
         localObject1 = new GenLayerIcePlains(2L, (GenLayer) localObject1);
-        localObject1 = new GenLayerZoom2(2002L, (GenLayer) localObject1);
+        localObject1 = new GenLayerZoom(2002L, (GenLayer) localObject1);
         localObject1 = new GenLayerIsland(3L, (GenLayer) localObject1);
-        localObject1 = new GenLayerZoom2(2003L, (GenLayer) localObject1);
+        localObject1 = new GenLayerZoom(2003L, (GenLayer) localObject1);
         localObject1 = new GenLayerIsland(4L, (GenLayer) localObject1);
         localObject1 = new GenLayerMushroomIsland(5L, (GenLayer) localObject1);
 
         int i = 4;
 
         Object localObject2 = localObject1;
-        localObject2 = GenLayerZoom2.a(1000L, (GenLayer) localObject2, 0);
+        localObject2 = GenLayerZoom.a(1000L, (GenLayer) localObject2, 0);
         localObject2 = new GenLayerRiverInit(100L, (GenLayer) localObject2);
-        localObject2 = GenLayerZoom2.a(1000L, (GenLayer) localObject2, i + 2);
+        localObject2 = GenLayerZoom.a(1000L, (GenLayer) localObject2, i + 2);
         localObject2 = new GenLayerRiver(1L, (GenLayer) localObject2);
         localObject2 = new GenLayerSmooth(1000L, (GenLayer) localObject2);
 
         Object localObject3 = localObject1;
-        localObject3 = GenLayerZoom2.a(1000L, (GenLayer) localObject3, 0);
+        localObject3 = GenLayerZoom.a(1000L, (GenLayer) localObject3, 0);
         localObject3 = new GenLayerBiome(200L, (GenLayer) localObject3);
-        localObject3 = GenLayerZoom2.a(1000L, (GenLayer) localObject3, 2);
+        localObject3 = GenLayerZoom.a(1000L, (GenLayer) localObject3, 2);
 
         Object localObject4 = new GenLayerTemperature((GenLayer) localObject3);
         Object localObject5 = new GenLayerDownfall((GenLayer) localObject3);
 
         for (int j = 0; j < i; j++) {
-            localObject3 = new GenLayerZoom2(1000 + j, (GenLayer) localObject3);
+            localObject3 = new GenLayerZoom(1000 + j, (GenLayer) localObject3);
             if (j == 0)
                 localObject3 = new GenLayerIsland(3L, (GenLayer) localObject3);
 
@@ -45,7 +45,7 @@ public abstract class GenLayer {
                 localObject3 = new GenLayerMushroomShore(1000L, (GenLayer) localObject3);
             }
             localObject4 = new GenLayerSmoothZoom(1000 + j, (GenLayer) localObject4);
-            localObject4 = new GenLayerTemperatureMix2((GenLayer) localObject4, (GenLayer) localObject3, j);
+            localObject4 = new GenLayerTemperatureMix((GenLayer) localObject4, (GenLayer) localObject3, j);
             localObject5 = new GenLayerSmoothZoom(1000 + j, (GenLayer) localObject5);
             localObject5 = new GenLayerDownfallMix((GenLayer) localObject5, (GenLayer) localObject3, j);
         }

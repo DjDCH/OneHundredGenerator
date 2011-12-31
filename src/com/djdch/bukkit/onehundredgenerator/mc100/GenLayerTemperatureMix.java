@@ -3,11 +3,11 @@ package com.djdch.bukkit.onehundredgenerator.mc100;
 import net.minecraft.server.BiomeBase;
 
 /* Working version of GenLayerTemperatureMix2 class. */
-public class GenLayerTemperatureMix2 extends GenLayer {
+public class GenLayerTemperatureMix extends GenLayer {
     private GenLayer b;
     private int c;
 
-    public GenLayerTemperatureMix2(GenLayer paramGenLayer1, GenLayer paramGenLayer2, int paramInt) {
+    public GenLayerTemperatureMix(GenLayer paramGenLayer1, GenLayer paramGenLayer2, int paramInt) {
         super(0L);
         this.a = paramGenLayer2;
         this.b = paramGenLayer1;

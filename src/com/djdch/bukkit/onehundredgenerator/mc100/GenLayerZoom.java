@@ -1,8 +1,8 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
 /* Working version of GenLayerZoom class. */
-public class GenLayerZoom2 extends GenLayer {
-    public GenLayerZoom2(long paramLong, GenLayer paramGenLayer) {
+public class GenLayerZoom extends GenLayer {
+    public GenLayerZoom(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);
         this.a = paramGenLayer;
     }
@@ -124,7 +124,7 @@ public class GenLayerZoom2 extends GenLayer {
     public static GenLayer a(long paramLong, GenLayer paramGenLayer, int paramInt) {
         Object localObject = paramGenLayer;
         for (int i = 0; i < paramInt; i++) {
-            localObject = new GenLayerZoom2(paramLong + (long) i, ((GenLayer) (localObject)));
+            localObject = new GenLayerZoom(paramLong + (long) i, ((GenLayer) (localObject)));
         }
 
         return ((GenLayer) (localObject));
