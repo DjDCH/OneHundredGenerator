@@ -8,6 +8,7 @@ import net.minecraft.server.BiomeBase;
 import net.minecraft.server.BiomeCache;
 import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.ChunkPosition;
+import net.minecraft.server.GenLayer;
 import net.minecraft.server.World;
 
 public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
@@ -31,7 +32,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
     public WorldChunkManager(World paramWorld) {
         this();
 
-        GenLayer[] arrayOfGenLayer = GenLayer.a(paramWorld.getSeed());
+        GenLayer[] arrayOfGenLayer = com.djdch.bukkit.onehundredgenerator.mc100.GenLayer.a(paramWorld.getSeed());
         this.temperature = arrayOfGenLayer[0];
         this.rain = arrayOfGenLayer[1];
         this.d = arrayOfGenLayer[2];
