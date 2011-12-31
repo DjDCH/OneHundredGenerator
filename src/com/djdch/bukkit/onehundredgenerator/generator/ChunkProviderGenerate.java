@@ -10,6 +10,7 @@ import org.bukkit.generator.ChunkGenerator;
 
 import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
 import com.djdch.bukkit.onehundredgenerator.mc100.NoiseGeneratorOctaves;
+import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
 
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
@@ -23,7 +24,6 @@ import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.SpawnerCreature;
 import net.minecraft.server.World;
-import net.minecraft.server.WorldChunkManager;
 import net.minecraft.server.WorldGenLakes;
 //import net.minecraft.server.WorldGenBase;
 //import net.minecraft.server.WorldGenCanyon;
@@ -484,7 +484,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     @Override
     @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
-        WorldChunkManager localWorldChunkManager = this.s.getWorldChunkManager();
+        WorldChunkManager localWorldChunkManager = (WorldChunkManager) this.s.getWorldChunkManager();
         if (localWorldChunkManager == null) {
             return null;
         }
