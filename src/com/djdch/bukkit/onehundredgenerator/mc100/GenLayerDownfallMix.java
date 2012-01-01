@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class GenLayerDownfallMix extends GenLayer {
     private GenLayer b;
     private int c;

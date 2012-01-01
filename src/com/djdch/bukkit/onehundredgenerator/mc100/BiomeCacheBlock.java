@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class BiomeCacheBlock {
     public float[] a = new float[256];
     public float[] b = new float[256];

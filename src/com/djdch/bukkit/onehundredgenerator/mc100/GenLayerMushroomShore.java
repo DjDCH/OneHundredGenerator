@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class GenLayerMushroomShore extends GenLayer {
     public GenLayerMushroomShore(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);

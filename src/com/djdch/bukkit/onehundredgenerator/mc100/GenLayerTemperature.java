@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class GenLayerTemperature extends GenLayer {
     public GenLayerTemperature(GenLayer paramGenLayer) {
         super(0L);

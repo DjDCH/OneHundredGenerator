@@ -3,9 +3,9 @@ package com.djdch.bukkit.onehundredgenerator.mc100;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.server.BiomeBase;
 import net.minecraft.server.LongHashMap;
 
+/* Working version of BiomeCache class. */
 public class BiomeCache {
 
     private final WorldChunkManager a;

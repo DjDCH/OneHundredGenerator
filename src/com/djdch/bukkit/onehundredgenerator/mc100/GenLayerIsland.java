@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class GenLayerIsland extends GenLayer {
     public GenLayerIsland(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);

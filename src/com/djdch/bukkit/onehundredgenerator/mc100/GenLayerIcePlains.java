@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class GenLayerIcePlains extends GenLayer {
     public GenLayerIcePlains(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);

@@ -11,6 +11,7 @@ import org.bukkit.generator.ChunkGenerator;
 import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
 import com.djdch.bukkit.onehundredgenerator.mc100.NoiseGeneratorOctaves;
 import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
+import com.djdch.bukkit.onehundredgenerator.mc100.WorldGenLakes;
 
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
@@ -24,7 +25,6 @@ import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.SpawnerCreature;
 import net.minecraft.server.World;
-import net.minecraft.server.WorldGenLakes;
 //import net.minecraft.server.WorldGenBase;
 //import net.minecraft.server.WorldGenCanyon;
 //import net.minecraft.server.WorldGenCaves;
@@ -114,7 +114,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         int i5 = this.s.height / 8 + 1;
         int i6 = b1 + 1;
 
-        this.y = this.s.getWorldChunkManager().getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
+        this.y = (BiomeBase[]) this.s.getWorldChunkManager().getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
         this.u = a(this.u, paramInt1 * b1, 0, paramInt2 * b1, i4, i5, i6);
 
         for (int i7 = 0; i7 < b1; i7++) {
@@ -376,7 +376,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         Chunk localChunk = new Chunk(this.s, arrayOfByte, paramInt1, paramInt2);
 
         generateTerrain(paramInt1, paramInt2, arrayOfByte);
-        this.y = this.s.getWorldChunkManager().a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
+        this.y = (BiomeBase[]) this.s.getWorldChunkManager().a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
         a(paramInt1, paramInt2, arrayOfByte, this.y);
 
 //        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
@@ -403,7 +403,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         int i1 = paramInt1 * 16;
         int i2 = paramInt2 * 16;
 
-        BiomeBase localBiomeBase = this.s.getWorldChunkManager().getBiome(i1 + 16, i2 + 16);
+        BiomeBase localBiomeBase = (BiomeBase) this.s.getWorldChunkManager().getBiome(i1 + 16, i2 + 16);
 
         this.n.setSeed(this.s.getSeed());
         long l1 = this.n.nextLong() / 2L * 2L + 1L;

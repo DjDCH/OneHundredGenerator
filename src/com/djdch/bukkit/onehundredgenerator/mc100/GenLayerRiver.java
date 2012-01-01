@@ -1,7 +1,5 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
-import net.minecraft.server.BiomeBase;
-
 public class GenLayerRiver extends GenLayer {
     public GenLayerRiver(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);
