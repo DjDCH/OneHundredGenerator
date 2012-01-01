@@ -93,7 +93,7 @@ public class OneHundredGenerator extends JavaPlugin {
             worldSetting.chunkProvider.Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.mapStructures);
             worldSetting.isInit = true;
 
-            this.logger.info("World '" + world.getName() + "' init (Seed: " + workWorld.getSeed() + ")");
+            this.logger.info("World '" + world.getName() + "' init");
         }
     }
 
