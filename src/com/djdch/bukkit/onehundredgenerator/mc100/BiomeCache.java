@@ -7,7 +7,7 @@ import net.minecraft.server.BiomeBase;
 import net.minecraft.server.BiomeCacheBlock;
 import net.minecraft.server.LongHashMap;
 
-public class BiomeCache2 extends net.minecraft.server.BiomeCache {
+public class BiomeCache extends net.minecraft.server.BiomeCache {
 
     private final WorldChunkManager a;
     private long b = 0L;
@@ -16,7 +16,7 @@ public class BiomeCache2 extends net.minecraft.server.BiomeCache {
     @SuppressWarnings("rawtypes")
     private List d = new ArrayList();
 
-    public BiomeCache2(WorldChunkManager paramWorldChunkManager) {
+    public BiomeCache(WorldChunkManager paramWorldChunkManager) {
         super(paramWorldChunkManager);
         this.a = paramWorldChunkManager;
     }
@@ -66,7 +66,7 @@ public class BiomeCache2 extends net.minecraft.server.BiomeCache {
         return a(paramInt1, paramInt2).c;
     }
 
-    static WorldChunkManager getChunkManager(BiomeCache2 biomecache) {
+    static WorldChunkManager getChunkManager(BiomeCache biomecache) {
         return biomecache.a;
     }
 }
