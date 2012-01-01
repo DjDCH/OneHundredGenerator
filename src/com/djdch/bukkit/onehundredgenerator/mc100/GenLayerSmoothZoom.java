@@ -1,9 +1,9 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
 public class GenLayerSmoothZoom extends GenLayer {
-    public GenLayerSmoothZoom(long paramLong, GenLayer localObject4) {
+    public GenLayerSmoothZoom(long paramLong, GenLayer paramGenLayer) {
         super(paramLong);
-        this.a = localObject4;
+        this.a = paramGenLayer;
     }
 
     @Override
@@ -46,8 +46,8 @@ public class GenLayerSmoothZoom extends GenLayer {
         return arrayOfInt3;
     }
 
-    public static GenLayer a(long paramLong, GenLayer localObject4, int paramInt) {
-        Object localObject = localObject4;
+    public static GenLayer a(long paramLong, GenLayer paramGenLayer, int paramInt) {
+        Object localObject = paramGenLayer;
         for (int i = 0; i < paramInt; i++) {
             localObject = new GenLayerSmoothZoom(paramLong + i, (GenLayer) localObject);
         }

@@ -90,7 +90,6 @@ public class OneHundredGenerator extends JavaPlugin {
 
             WorldChunkManager chunkManager = new WorldChunkManager(workWorld);
             workWorld.worldProvider.b = chunkManager;
-            worldSetting.mapStructures = true;
             worldSetting.chunkProvider.Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.mapStructures);
             worldSetting.isInit = true;
 

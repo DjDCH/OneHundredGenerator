@@ -50,60 +50,60 @@ public class GenLayerZoom extends GenLayer {
     }
 
     protected int b(int paramInt1, int paramInt2) {
-        return a(2) != 0 ? paramInt2 : paramInt1;
+        return a(2) == 0 ? paramInt1 : paramInt2;
     }
 
     protected int c(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
-        if (paramInt2 == paramInt3 && paramInt3 == paramInt4) {
+        if ((paramInt2 == paramInt3) && (paramInt3 == paramInt4)) {
             return paramInt2;
         }
-        if (paramInt1 == paramInt2 && paramInt1 == paramInt3) {
+        if ((paramInt1 == paramInt2) && (paramInt1 == paramInt3)) {
             return paramInt1;
         }
-        if (paramInt1 == paramInt2 && paramInt1 == paramInt4) {
+        if ((paramInt1 == paramInt2) && (paramInt1 == paramInt4)) {
             return paramInt1;
         }
-        if (paramInt1 == paramInt3 && paramInt1 == paramInt4) {
+        if ((paramInt1 == paramInt3) && (paramInt1 == paramInt4)) {
             return paramInt1;
         }
 
-        if (paramInt1 == paramInt2 && paramInt3 != paramInt4) {
+        if ((paramInt1 == paramInt2) && (paramInt3 != paramInt4)) {
             return paramInt1;
         }
-        if (paramInt1 == paramInt3 && paramInt2 != paramInt4) {
+        if ((paramInt1 == paramInt3) && (paramInt2 != paramInt4)) {
             return paramInt1;
         }
-        if (paramInt1 == paramInt4 && paramInt2 != paramInt3) {
+        if ((paramInt1 == paramInt4) && (paramInt2 != paramInt3)) {
             return paramInt1;
         }
 
-        if (paramInt2 == paramInt1 && paramInt3 != paramInt4) {
+        if ((paramInt2 == paramInt1) && (paramInt3 != paramInt4)) {
             return paramInt2;
         }
-        if (paramInt2 == paramInt3 && paramInt1 != paramInt4) {
+        if ((paramInt2 == paramInt3) && (paramInt1 != paramInt4)) {
             return paramInt2;
         }
-        if (paramInt2 == paramInt4 && paramInt1 != paramInt3) {
+        if ((paramInt2 == paramInt4) && (paramInt1 != paramInt3)) {
             return paramInt2;
         }
 
-        if (paramInt3 == paramInt1 && paramInt2 != paramInt4) {
+        if ((paramInt3 == paramInt1) && (paramInt2 != paramInt4)) {
             return paramInt3;
         }
-        if (paramInt3 == paramInt2 && paramInt1 != paramInt4) {
+        if ((paramInt3 == paramInt2) && (paramInt1 != paramInt4)) {
             return paramInt3;
         }
-        if (paramInt3 == paramInt4 && paramInt1 != paramInt2) {
+        if ((paramInt3 == paramInt4) && (paramInt1 != paramInt2)) {
             return paramInt3;
         }
 
-        if (paramInt4 == paramInt1 && paramInt2 != paramInt3) {
+        if ((paramInt4 == paramInt1) && (paramInt2 != paramInt3)) {
             return paramInt3;
         }
-        if (paramInt4 == paramInt2 && paramInt1 != paramInt3) {
+        if ((paramInt4 == paramInt2) && (paramInt1 != paramInt3)) {
             return paramInt3;
         }
-        if (paramInt4 == paramInt3 && paramInt1 != paramInt2) {
+        if ((paramInt4 == paramInt3) && (paramInt1 != paramInt2)) {
             return paramInt3;
         }
 
@@ -116,17 +116,17 @@ public class GenLayerZoom extends GenLayer {
         }
         if (i == 2) {
             return paramInt3;
-        } else {
-            return paramInt4;
         }
+
+        return paramInt4;
     }
 
     public static GenLayer a(long paramLong, GenLayer paramGenLayer, int paramInt) {
         Object localObject = paramGenLayer;
         for (int i = 0; i < paramInt; i++) {
-            localObject = new GenLayerZoom(paramLong + (long) i, ((GenLayer) (localObject)));
+            localObject = new GenLayerZoom(paramLong + (long) i, (GenLayer) localObject);
         }
 
-        return ((GenLayer) (localObject));
+        return (GenLayer) localObject;
     }
 }
