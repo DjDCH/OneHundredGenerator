@@ -66,7 +66,7 @@ public class BiomeCache extends net.minecraft.server.BiomeCache {
         return a(paramInt1, paramInt2).c;
     }
 
-    static WorldChunkManager getChunkManager(BiomeCache biomecache) {
-        return biomecache.a;
+    public static WorldChunkManager a(BiomeCache paramBiomeCache) {
+        return paramBiomeCache.a;
     }
 }
