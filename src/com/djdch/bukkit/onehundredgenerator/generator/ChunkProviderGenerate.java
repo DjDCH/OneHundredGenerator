@@ -25,6 +25,13 @@ import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.SpawnerCreature;
 import net.minecraft.server.World;
+//import net.minecraft.server.WorldGenBase;
+//import net.minecraft.server.WorldGenCanyon;
+//import net.minecraft.server.WorldGenCaves;
+//import net.minecraft.server.WorldGenDungeons;
+//import net.minecraft.server.WorldGenMineshaft;
+//import net.minecraft.server.WorldGenStronghold;
+//import net.minecraft.server.WorldGenVillage;
 
 public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvider {
     private Random n;
@@ -109,7 +116,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         int i5 = this.s.height / 8 + 1;
         int i6 = b1 + 1;
 
-        this.y = this.worldChunkManager.getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
+        this.y = (BiomeBase[]) this.worldChunkManager.getBiomes(this.y, paramInt1 * 4 - 2, paramInt2 * 4 - 2, i4 + 5, i6 + 5);
         this.u = a(this.u, paramInt1 * b1, 0, paramInt2 * b1, i4, i5, i6);
 
         for (int i7 = 0; i7 < b1; i7++) {
@@ -371,7 +378,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         Chunk localChunk = new Chunk(this.s, arrayOfByte, paramInt1, paramInt2);
 
         generateTerrain(paramInt1, paramInt2, arrayOfByte);
-        this.y = this.worldChunkManager.a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
+        this.y = (BiomeBase[]) this.worldChunkManager.a(this.y, paramInt1 * 16, paramInt2 * 16, 16, 16);
         a(paramInt1, paramInt2, arrayOfByte, this.y);
 
 //        this.w.a(this, this.s, paramInt1, paramInt2, arrayOfByte);
@@ -398,7 +405,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         int i1 = paramInt1 * 16;
         int i2 = paramInt2 * 16;
 
-        BiomeBase localBiomeBase = this.worldChunkManager.getBiome(i1 + 16, i2 + 16);
+        BiomeBase localBiomeBase = (BiomeBase) this.worldChunkManager.getBiome(i1 + 16, i2 + 16);
 
         this.n.setSeed(this.s.getSeed());
         long l1 = this.n.nextLong() / 2L * 2L + 1L;
@@ -479,7 +486,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     @Override
     @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
-        WorldChunkManager localWorldChunkManager = this.worldChunkManager;
+        WorldChunkManager localWorldChunkManager = (WorldChunkManager) this.worldChunkManager;
         if (localWorldChunkManager == null) {
             return null;
         }

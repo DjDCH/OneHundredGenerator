@@ -1,5 +1,6 @@
 package com.djdch.bukkit.onehundredgenerator.mc100;
 
+/* Working version of GenLayerTemperatureMix class. */
 public class GenLayerTemperatureMix extends GenLayer {
     private GenLayer b;
     private int c;
@@ -17,8 +18,9 @@ public class GenLayerTemperatureMix extends GenLayer {
         int[] arrayOfInt2 = this.b.a(paramInt1, paramInt2, paramInt3, paramInt4);
 
         int[] arrayOfInt3 = IntCache.a(paramInt3 * paramInt4);
+
         for (int i = 0; i < paramInt3 * paramInt4; i++) {
-            arrayOfInt2[i] += (BiomeBase.a[arrayOfInt1[i]].f() - arrayOfInt2[i]) / (this.c * 2 + 1);
+            arrayOfInt3[i] = arrayOfInt2[i] + (BiomeBase.a[arrayOfInt1[i]].f() - arrayOfInt2[i]) / (this.c * 2 + 1);
         }
 
         return arrayOfInt3;

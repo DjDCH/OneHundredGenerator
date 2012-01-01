@@ -36,19 +36,23 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         this.e = arrayOfGenLayer[3];
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public List a() {
         return this.g;
     }
 
+    @Override
     public BiomeBase a(ChunkCoordIntPair paramChunkCoordIntPair) {
         return getBiome(paramChunkCoordIntPair.x << 4, paramChunkCoordIntPair.z << 4);
     }
 
+    @Override
     public BiomeBase getBiome(int paramInt1, int paramInt2) {
         return this.f.b(paramInt1, paramInt2);
     }
 
+    @Override
     public float[] getWetness(float[] paramArrayOfFloat, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
         IntCache.a();
         if ((paramArrayOfFloat == null) || (paramArrayOfFloat.length < paramInt3 * paramInt4)) {
@@ -66,19 +70,23 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return paramArrayOfFloat;
     }
 
+    @Override
     public float a(int paramInt1, int paramInt2, int paramInt3) {
         return a(this.f.c(paramInt1, paramInt3), paramInt2);
     }
 
+    @Override
     public float a(float paramFloat, int paramInt) {
         return paramFloat;
     }
 
+    @Override
     public float[] a(int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
         this.a = getTemperatures(this.a, paramInt1, paramInt2, paramInt3, paramInt4);
         return this.a;
     }
 
+    @Override
     public float[] getTemperatures(float[] paramArrayOfFloat, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
         IntCache.a();
         if ((paramArrayOfFloat == null) || (paramArrayOfFloat.length < paramInt3 * paramInt4)) {
@@ -134,6 +142,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return (BiomeBase[]) paramArrayOfBiomeBase;
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public boolean a(int paramInt1, int paramInt2, int paramInt3, List paramList) {
         int i = paramInt1 - paramInt3 >> 2;
@@ -154,6 +163,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return true;
     }
 
+    @Override
     @SuppressWarnings("rawtypes")
     public ChunkPosition a(int paramInt1, int paramInt2, int paramInt3, List paramList, Random paramRandom) {
         int i = paramInt1 - paramInt3 >> 2;
@@ -179,6 +189,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return localChunkPosition;
     }
 
+    @Override
     public void b() {
         this.f.a();
     }
