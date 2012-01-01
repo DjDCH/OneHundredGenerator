@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.BiomeCacheBlock;
 import net.minecraft.server.LongHashMap;
 
-public class BiomeCache extends net.minecraft.server.BiomeCache {
+public class BiomeCache {
 
     private final WorldChunkManager a;
     private long b = 0L;
@@ -17,7 +16,6 @@ public class BiomeCache extends net.minecraft.server.BiomeCache {
     private List d = new ArrayList();
 
     public BiomeCache(WorldChunkManager paramWorldChunkManager) {
-        super(paramWorldChunkManager);
         this.a = paramWorldChunkManager;
     }
 
