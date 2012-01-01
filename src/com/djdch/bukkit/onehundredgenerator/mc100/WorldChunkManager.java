@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.BiomeCache;
 import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.ChunkPosition;
 import net.minecraft.server.World;
@@ -15,7 +14,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
     private GenLayer rain;
     private GenLayer d;
     private GenLayer e;
-    private BiomeCache f = new BiomeCache(this);
+    private BiomeCache2 f = new BiomeCache2(this);
     @SuppressWarnings("rawtypes")
     private List g;
     public float[] a;
