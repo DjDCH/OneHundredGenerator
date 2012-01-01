@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.server.BiomeBase;
 import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.ChunkPosition;
 import net.minecraft.server.World;
@@ -105,7 +104,6 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return paramArrayOfFloat;
     }
 
-    @Override
     public BiomeBase[] getBiomes(BiomeBase[] paramArrayOfBiomeBase, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
         IntCache.a();
         if ((paramArrayOfBiomeBase == null) || (paramArrayOfBiomeBase.length < paramInt3 * paramInt4)) {
@@ -120,12 +118,10 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return paramArrayOfBiomeBase;
     }
 
-    @Override
     public BiomeBase[] a(BiomeBase[] paramArrayOfBiomeBase, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
         return a(paramArrayOfBiomeBase, paramInt1, paramInt2, paramInt3, paramInt4, true);
     }
 
-    @Override
     public BiomeBase[] a(BiomeBase[] paramArrayOfBiomeBase, int paramInt1, int paramInt2, int paramInt3, int paramInt4, boolean paramBoolean) {
         IntCache.a();
         if ((paramArrayOfBiomeBase == null) || (paramArrayOfBiomeBase.length < paramInt3 * paramInt4)) {

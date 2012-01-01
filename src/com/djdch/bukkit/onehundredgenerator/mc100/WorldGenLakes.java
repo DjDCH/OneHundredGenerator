@@ -9,9 +9,11 @@ import net.minecraft.server.World;
 
 public class WorldGenLakes extends WorldGenerator {
     private int a;
+    protected WorldChunkManager worldChunkManager;
 
-    public WorldGenLakes(int paramInt) {
+    public WorldGenLakes(int paramInt, WorldChunkManager paramWorldChunkManager) {
         this.a = paramInt;
+        this.worldChunkManager = paramWorldChunkManager;
     }
 
     @Override
@@ -82,7 +84,7 @@ public class WorldGenLakes extends WorldGenerator {
                 for (i2 = 4; i2 < 8; i2++) {
                     if ((arrayOfBoolean[((j * 16 + i1) * 8 + i2)] == false) || (paramWorld.getTypeId(paramInt1 + j, paramInt2 + i2 - 1, paramInt3 + i1) != Block.DIRT.id) || (paramWorld.a(EnumSkyBlock.SKY, paramInt1 + j, paramInt2 + i2, paramInt3 + i1) <= 0))
                         continue;
-                    BiomeBase localBiomeBase = (BiomeBase) paramWorld.getWorldChunkManager().getBiome(paramInt1 + j, paramInt3 + i1);
+                    BiomeBase localBiomeBase = (BiomeBase) this.worldChunkManager.getBiome(paramInt1 + j, paramInt3 + i1);
                     if (localBiomeBase.t == Block.MYCEL.id)
                         paramWorld.setRawTypeId(paramInt1 + j, paramInt2 + i2 - 1, paramInt3 + i1, Block.MYCEL.id);
                     else {
