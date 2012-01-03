@@ -86,7 +86,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public ChunkProviderGenerate(WorldConfiguration worldSettings) {
         this.worldSettings = worldSettings;
-        this.worldSettings.chunkProvider = this;
+        this.worldSettings.setChunkProvider(this);
         this.populatorList = new ArrayList();
         this.populatorList.add(new ObjectSpawner(this));
     }
@@ -512,7 +512,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
     @Override
     public boolean canSpawn(org.bukkit.World world, int x, int z) {
-        this.worldSettings.plugin.WorldInit(world);
+        this.worldSettings.getPlugin().WorldInit(world);
 
         int i = ((CraftWorld) world).getHandle().a(x, z);
         return (i != 0) && (Block.byId[i].material.isSolid());

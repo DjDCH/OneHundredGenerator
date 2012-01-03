@@ -64,7 +64,7 @@ public class OneHundredGenerator extends JavaPlugin {
     public ChunkGenerator getDefaultWorldGenerator(String worldName, String id) {
         if (this.worldsSettings.containsKey(worldName)) {
             this.logger.info("World '" + worldName + "' enable");
-            return ((WorldConfiguration) this.worldsSettings.get(worldName)).chunkProvider;
+            return ((WorldConfiguration) this.worldsSettings.get(worldName)).getChunkProvider();
         }
 
         WorldConfiguration worldSetting = new WorldConfiguration(this);
@@ -83,15 +83,15 @@ public class OneHundredGenerator extends JavaPlugin {
     public void WorldInit(World world) {
         if (this.worldsSettings.containsKey(world.getName())) {
             WorldConfiguration worldSetting = (WorldConfiguration) this.worldsSettings.get(world.getName());
-            if (worldSetting.isInit) {
+            if (worldSetting.isInit()) {
                 return;
             }
             net.minecraft.server.World workWorld = ((CraftWorld) world).getHandle();
 
             WorldChunkManager chunkManager = new WorldChunkManager(workWorld);
             workWorld.worldProvider.b = chunkManager;
-            worldSetting.chunkProvider.Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.mapStructures);
-            worldSetting.isInit = true;
+            worldSetting.getChunkProvider().Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.getLevelStructures());
+            worldSetting.setInit(true);
 
             this.logger.info("World '" + world.getName() + "' init");
         }
