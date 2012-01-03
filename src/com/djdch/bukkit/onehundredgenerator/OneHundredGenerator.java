@@ -18,7 +18,7 @@ import com.djdch.bukkit.util.Logger;
 /**
  * Main class of the <b>OneHundredGenerator</b> plugin for Bukkit.
  * <p>
- * Minecraft 1.0.0 terrain generator plugin for Bukkit.
+ * Minecraft 1.0.0 world generator plugin for Bukkit.
  * 
  * @author DjDCH
  */
