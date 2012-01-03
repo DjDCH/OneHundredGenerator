@@ -284,13 +284,9 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                         d3 += d7;
                         d4 += d8;
                     }
-
                 }
-
             }
-
         }
-
     }
 
     /**
@@ -308,7 +304,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
         float[] arrayOfFloat = this.worldChunkManager.a(paramInt1 * 16, paramInt2 * 16, 16, 16);
 
-        for (int i2 = 0; i2 < 16; i2++)
+        for (int i2 = 0; i2 < 16; i2++) {
             for (int i3 = 0; i3 < 16; i3++) {
                 float f1 = arrayOfFloat[(i3 + i2 * 16)];
 
@@ -328,9 +324,9 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                     } else {
                         int i10 = paramArrayOfByte[i9];
 
-                        if (i10 == 0)
+                        if (i10 == 0) {
                             i5 = -1;
-                        else if (i10 == Block.STONE.id)
+                        } else if (i10 == Block.STONE.id) {
                             if (i5 == -1) {
                                 if (i4 <= 0) {
                                     i6 = 0;
@@ -363,9 +359,11 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                                     i7 = (byte) Block.SANDSTONE.id;
                                 }
                             }
+                        }
                     }
                 }
             }
+        }
     }
 
     /**
@@ -491,6 +489,7 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
                 }
             }
         }
+
         return paramArrayOfDouble;
     }
 
@@ -666,10 +665,12 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         if (localWorldChunkManager == null) {
             return null;
         }
+
         BiomeBase localBiomeBase = localWorldChunkManager.a(new ChunkCoordIntPair(paramInt1 >> 4, paramInt3 >> 4));
         if (localBiomeBase == null) {
             return null;
         }
+
         return localBiomeBase.a(paramEnumCreatureType);
     }
 
