@@ -13,7 +13,7 @@ import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
 import com.djdch.bukkit.onehundredgenerator.generator.ChunkProviderGenerate;
 import com.djdch.bukkit.onehundredgenerator.listener.WorldListener;
 import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
-import com.djdch.bukkit.utils.Logger;
+import com.djdch.bukkit.util.Logger;
 
 /**
  * Main class of the <b>OneHundredGenerator</b> plugin for Bukkit.
@@ -42,7 +42,7 @@ public class OneHundredGenerator extends JavaPlugin {
      * Method execute when the plugin is enable.
      */
     public void onEnable() {
-        this.logger.setPrefix(getDescription().getName());
+        this.logger.setName(getDescription().getName());
 
         // Register the plugin events
         PluginManager pm = getServer().getPluginManager();
