@@ -8,8 +8,7 @@ import org.bukkit.generator.BlockPopulator;
 
 /**
  * 
- * @author djdch
- * 
+ * @author DjDCH
  */
 public class ObjectSpawner extends BlockPopulator {
     /**

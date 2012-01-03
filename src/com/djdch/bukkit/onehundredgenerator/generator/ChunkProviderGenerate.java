@@ -33,19 +33,70 @@ import net.minecraft.server.World;
 //import net.minecraft.server.WorldGenStronghold;
 //import net.minecraft.server.WorldGenVillage;
 
+/**
+ * 
+ * @author DjDCH
+ */
 public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvider {
+    /**
+     * 
+     */
     private Random n;
+
+    /**
+     * 
+     */
     private NoiseGeneratorOctaves o;
+
+    /**
+     * 
+     */
     private NoiseGeneratorOctaves p;
+
+    /**
+     * 
+     */
     private NoiseGeneratorOctaves q;
+
+    /**
+     * 
+     */
     private NoiseGeneratorOctaves r;
+
+    /**
+     * 
+     */
     public NoiseGeneratorOctaves a;
+
+    /**
+     * 
+     */
     public NoiseGeneratorOctaves b;
+
+    /**
+     * 
+     */
     public NoiseGeneratorOctaves c;
+
+    /**
+     * 
+     */
     private World s;
+
+    /**
+     * 
+     */
     @SuppressWarnings("unused")
     private boolean t;
+
+    /**
+     * 
+     */
     private double[] u;
+
+    /**
+     * 
+     */
     private double[] v = new double[256];
 
 //    private WorldGenBase w = new WorldGenCaves();
@@ -54,18 +105,68 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 //    public WorldGenMineshaft f = new WorldGenMineshaft();
 //    private WorldGenBase x = new WorldGenCanyon();
 
+    /**
+     * 
+     */
     private BiomeBase[] y;
+
+    /**
+     * 
+     */
     double[] g;
+
+    /**
+     * 
+     */
     double[] h;
+
+    /**
+     * 
+     */
     double[] i;
+
+    /**
+     * 
+     */
     double[] j;
+
+    /**
+     * 
+     */
     double[] k;
+
+    /**
+     * 
+     */
     float[] l;
+
+    /**
+     * 
+     */
     int[][] m = new int[32][32];
+
+    /**
+     * 
+     */
     protected WorldConfiguration worldSettings;
+
+    /**
+     * 
+     */
     protected WorldChunkManager worldChunkManager;
+
+    /**
+     * 
+     */
     protected ArrayList<BlockPopulator> populatorList;
 
+    /**
+     * 
+     * @param paramWorld
+     * @param paramWorldChunkManager
+     * @param paramLong
+     * @param paramBoolean
+     */
     public void Init(World paramWorld, WorldChunkManager paramWorldChunkManager, long paramLong, boolean paramBoolean) {
         this.s = paramWorld;
         this.t = paramBoolean;
@@ -83,6 +184,10 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         this.c = new NoiseGeneratorOctaves(this.n, 8);
     }
 
+    /**
+     * 
+     * @param worldSettings
+     */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     public ChunkProviderGenerate(WorldConfiguration worldSettings) {
         this.worldSettings = worldSettings;
@@ -107,6 +212,12 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 //        this.c = new NoiseGeneratorOctaves(this.n, 8);
 //    }
 
+    /**
+     * 
+     * @param paramInt1
+     * @param paramInt2
+     * @param paramArrayOfByte
+     */
     public void generateTerrain(int paramInt1, int paramInt2, byte paramArrayOfByte[]) {
         byte b1 = 4;
         int i2 = this.s.height / 8;
@@ -182,6 +293,13 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
 
     }
 
+    /**
+     * 
+     * @param paramInt1
+     * @param paramInt2
+     * @param paramArrayOfByte
+     * @param paramArrayOfBiomeBase
+     */
     public void a(int paramInt1, int paramInt2, byte[] paramArrayOfByte, BiomeBase[] paramArrayOfBiomeBase) {
         int i1 = this.s.seaLevel;
 
@@ -250,6 +368,17 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
             }
     }
 
+    /**
+     * 
+     * @param paramArrayOfDouble
+     * @param paramInt1
+     * @param paramInt2
+     * @param paramInt3
+     * @param paramInt4
+     * @param paramInt5
+     * @param paramInt6
+     * @return
+     */
     private double[] a(double[] paramArrayOfDouble, int paramInt1, int paramInt2, int paramInt3, int paramInt4, int paramInt5, int paramInt6) {
         if (paramArrayOfDouble == null) {
             paramArrayOfDouble = new double[paramInt4 * paramInt5 * paramInt6];
@@ -365,11 +494,23 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return paramArrayOfDouble;
     }
 
+    /**
+     * 
+     * @param paramInt1
+     * @param paramInt2
+     * @return
+     */
     @Override
     public boolean isChunkLoaded(int paramInt1, int paramInt2) {
         return true;
     }
 
+    /**
+     * 
+     * @param paramInt1
+     * @param paramInt2
+     * @return
+     */
     @Override
     public Chunk getOrCreateChunk(int paramInt1, int paramInt2) {
         this.n.setSeed(paramInt1 * 341873128712L + paramInt2 * 132897987541L);
@@ -394,11 +535,24 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return localChunk;
     }
 
+    /**
+     * 
+     * @param paramInt1
+     * @param paramInt2
+     * @return
+     */
     @Override
     public Chunk getChunkAt(int paramInt1, int paramInt2) {
         return getOrCreateChunk(paramInt1, paramInt2);
     }
 
+    /**
+     * 
+     * @param paramIChunkProvider
+     * @param paramInt1
+     * @param paramInt2
+     * @return
+     */
     @Override
     public void getChunkAt(IChunkProvider paramIChunkProvider, int paramInt1, int paramInt2) {
         BlockSand.instaFall = true;
@@ -468,21 +622,43 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         BlockSand.instaFall = false;
     }
 
+    /**
+     * 
+     * @param paramBoolean
+     * @param paramIProgressUpdate
+     * @return
+     */
     @Override
     public boolean saveChunks(boolean paramBoolean, IProgressUpdate paramIProgressUpdate) {
         return true;
     }
 
+    /**
+     * 
+     * @return
+     */
     @Override
     public boolean unloadChunks() {
         return false;
     }
 
+    /**
+     * 
+     * @return
+     */
     @Override
     public boolean canSave() {
         return true;
     }
 
+    /**
+     * 
+     * @param
+     * @param
+     * @param
+     * @param
+     * @return
+     */
     @Override
     @SuppressWarnings("rawtypes")
     public List a(EnumCreatureType paramEnumCreatureType, int paramInt1, int paramInt2, int paramInt3) {
@@ -497,6 +673,15 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return localBiomeBase.a(paramEnumCreatureType);
     }
 
+    /**
+     * 
+     * @param
+     * @param
+     * @param
+     * @param
+     * @param
+     * @return
+     */
     @Override
     public ChunkPosition a(World paramWorld, String paramString, int paramInt1, int paramInt2, int paramInt3) {
 //        if (("Stronghold".equals(paramString)) && (this.d != null)) {
@@ -505,11 +690,26 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return null;
     }
 
+    /**
+     * 
+     * @param
+     * @param
+     * @param
+     * @param
+     * @return
+     */
     @Override
     public byte[] generate(org.bukkit.World paramWorld, Random paramRandom, int paramInt1, int paramInt2) {
         return getOrCreateChunk(paramInt1, paramInt2).b;
     }
 
+    /**
+     * 
+     * @param
+     * @param
+     * @param
+     * @return
+     */
     @Override
     public boolean canSpawn(org.bukkit.World world, int x, int z) {
         this.worldSettings.getPlugin().WorldInit(world);
@@ -518,6 +718,11 @@ public class ChunkProviderGenerate extends ChunkGenerator implements IChunkProvi
         return (i != 0) && (Block.byId[i].material.isSolid());
     }
 
+    /**
+     * 
+     * @param
+     * @return
+     */
     @Override
     public List<BlockPopulator> getDefaultPopulators(org.bukkit.World world) {
         return this.populatorList;

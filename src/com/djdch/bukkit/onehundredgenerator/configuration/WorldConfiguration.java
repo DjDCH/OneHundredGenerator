@@ -5,8 +5,7 @@ import com.djdch.bukkit.onehundredgenerator.generator.ChunkProviderGenerate;
 
 /**
  * 
- * @author djdch
- * 
+ * @author DjDCH
  */
 public class WorldConfiguration {
     /**
@@ -39,7 +38,7 @@ public class WorldConfiguration {
 
     /**
      * 
-     * @return the plugin
+     * @return
      */
     public OneHundredGenerator getPlugin() {
         return plugin;
@@ -47,7 +46,7 @@ public class WorldConfiguration {
 
     /**
      * 
-     * @return the chunkProvider
+     * @return
      */
     public ChunkProviderGenerate getChunkProvider() {
         return chunkProvider;
@@ -63,7 +62,7 @@ public class WorldConfiguration {
 
     /**
      * 
-     * @return the isInit
+     * @return
      */
     public boolean isInit() {
         return init;
@@ -79,7 +78,7 @@ public class WorldConfiguration {
 
     /**
      * 
-     * @return the levelStructures
+     * @return
      */
     public boolean getLevelStructures() {
         return levelStructures;
