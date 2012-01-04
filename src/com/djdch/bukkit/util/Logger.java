@@ -6,6 +6,7 @@ package com.djdch.bukkit.util;
  * The purpose of this wrapper is to prefix each log message with the plugin name.
  * 
  * @author DjDCH
+ * @version 0.3
  */
 public class Logger {
     /**
@@ -41,7 +42,7 @@ public class Logger {
     /**
      * Constructor for the initialization of the Logger.
      * 
-     * @param msg Contains the log message.
+     * @param name Contains the plugin name string.
      */
     public Logger(String name) {
         this.logger = java.util.logging.Logger.getLogger(MINECRAFT_LOGGER);
