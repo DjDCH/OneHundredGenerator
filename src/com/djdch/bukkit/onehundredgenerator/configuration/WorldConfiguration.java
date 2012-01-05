@@ -41,7 +41,7 @@ public class WorldConfiguration {
      * @return
      */
     public OneHundredGenerator getPlugin() {
-        return plugin;
+        return this.plugin;
     }
 
     /**
@@ -49,7 +49,7 @@ public class WorldConfiguration {
      * @return
      */
     public ChunkProviderGenerate getChunkProvider() {
-        return chunkProvider;
+        return this.chunkProvider;
     }
 
     /**
@@ -65,7 +65,7 @@ public class WorldConfiguration {
      * @return
      */
     public boolean isInit() {
-        return init;
+        return this.init;
     }
 
     /**
@@ -81,7 +81,7 @@ public class WorldConfiguration {
      * @return
      */
     public boolean getLevelStructures() {
-        return levelStructures;
+        return this.levelStructures;
     }
 
     /**
