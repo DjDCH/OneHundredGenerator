@@ -1,5 +1,5 @@
 name: OneHundredGenerator
-description: Minecraft 1.0.0 world generator plugin for Bukkit.
+description: Minecraft 1.0.0 world generator.
 author: DjDCH
 main: com.djdch.bukkit.onehundredgenerator.OneHundredGenerator
 version: 0.1
