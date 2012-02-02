@@ -24,7 +24,7 @@ public class OneHundredGenerator extends JavaPlugin {
     /**
      * Contains the Logger instance.
      */
-    protected Logger logger = this.getLogger();
+    protected Logger logger;
 
     /**
      * Contains the deathListener instance.
@@ -40,16 +40,15 @@ public class OneHundredGenerator extends JavaPlugin {
      * Method execute when the plugin is enable.
      */
     public void onEnable() {
-        this.getServer().getPluginManager().registerEvents(this.worldListener, this);
+        this.logger = this.getLogger();
 
-        this.logger.info("Version " + getDescription().getVersion() + " enable");
+        this.getServer().getPluginManager().registerEvents(this.worldListener, this);
     }
 
     /**
      * Method execute when the plugin is disable.
      */
     public void onDisable() {
-        this.logger.info("Version " + getDescription().getVersion() + " disable");
     }
 
     /**
