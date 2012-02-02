@@ -1,6 +1,7 @@
 package com.djdch.bukkit.onehundredgenerator;
 
 import java.util.HashMap;
+import java.util.logging.Logger;
 
 import org.bukkit.World;
 import org.bukkit.craftbukkit.CraftWorld;
@@ -13,7 +14,6 @@ import com.djdch.bukkit.onehundredgenerator.configuration.WorldConfiguration;
 import com.djdch.bukkit.onehundredgenerator.generator.ChunkProviderGenerate;
 import com.djdch.bukkit.onehundredgenerator.listener.WorldListener;
 import com.djdch.bukkit.onehundredgenerator.mc100.WorldChunkManager;
-import com.djdch.bukkit.util.Logger;
 
 /**
  * Main class of the <b>OneHundredGenerator</b> plugin for Bukkit.
@@ -26,7 +26,7 @@ public class OneHundredGenerator extends JavaPlugin {
     /**
      * Contains the Logger instance.
      */
-    protected final Logger logger = new Logger();
+    protected Logger logger = this.getLogger();
 
     /**
      * Contains the deathListener instance.
@@ -42,8 +42,6 @@ public class OneHundredGenerator extends JavaPlugin {
      * Method execute when the plugin is enable.
      */
     public void onEnable() {
-        this.logger.setName(getDescription().getName());
-
         // Register the plugin events
         PluginManager pm = getServer().getPluginManager();
         pm.registerEvent(Event.Type.WORLD_INIT, this.worldListener, Event.Priority.High, this);
@@ -102,14 +100,5 @@ public class OneHundredGenerator extends JavaPlugin {
 
             this.logger.info("World '" + world.getName() + "' init");
         }
-    }
-
-    /**
-     * Accessor who return the logger instance.
-     * 
-     * @return Logger instance.
-     */
-    public Logger getLogger() {
-        return this.logger;
     }
 }
