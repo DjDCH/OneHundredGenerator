@@ -1,5 +1,8 @@
 package com.djdch.bukkit.onehundredgenerator.listener;
 
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.world.WorldInitEvent;
 
 import com.djdch.bukkit.onehundredgenerator.OneHundredGenerator;
@@ -8,7 +11,7 @@ import com.djdch.bukkit.onehundredgenerator.OneHundredGenerator;
  * 
  * @author DjDCH
  */
-public class WorldListener extends org.bukkit.event.world.WorldListener {
+public class WorldListener implements Listener {
     /**
 	 * 
 	 */
@@ -26,6 +29,7 @@ public class WorldListener extends org.bukkit.event.world.WorldListener {
      * 
      * @param event
      */
+    @EventHandler(priority = EventPriority.HIGH)
     public void onWorldInit(WorldInitEvent event) {
         this.plugin.WorldInit(event.getWorld());
     }

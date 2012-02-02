@@ -5,8 +5,6 @@ import java.util.logging.Logger;
 
 import org.bukkit.World;
 import org.bukkit.craftbukkit.CraftWorld;
-import org.bukkit.event.Event;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.generator.ChunkGenerator;
 
@@ -42,9 +40,7 @@ public class OneHundredGenerator extends JavaPlugin {
      * Method execute when the plugin is enable.
      */
     public void onEnable() {
-        // Register the plugin events
-        PluginManager pm = getServer().getPluginManager();
-        pm.registerEvent(Event.Type.WORLD_INIT, this.worldListener, Event.Priority.High, this);
+        this.getServer().getPluginManager().registerEvents(this.worldListener, this);
 
         this.logger.info("Version " + getDescription().getVersion() + " enable");
     }
