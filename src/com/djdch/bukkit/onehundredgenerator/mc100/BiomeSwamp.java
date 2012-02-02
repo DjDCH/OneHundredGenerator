@@ -5,18 +5,18 @@ import java.util.Random;
 public class BiomeSwamp extends BiomeBase {
     protected BiomeSwamp(int paramInt) {
         super(paramInt);
-        this.B.z = 2;
-        this.B.A = -999;
-        this.B.C = 1;
-        this.B.D = 8;
-        this.B.E = 10;
-        this.B.I = 1;
-        this.B.y = 4;
+        this.G.z = 2;
+        this.G.A = -999;
+        this.G.C = 1;
+        this.G.D = 8;
+        this.G.E = 10;
+        this.G.I = 1;
+        this.G.y = 4;
 
-        this.A = 14745456;
+        this.F = 14745456;
     }
 
     public WorldGenerator aa(Random paramRandom) {
-        return this.J;
+        return this.O;
     }
 }

@@ -131,7 +131,7 @@ public class WorldGenBigTree extends WorldGenerator {
                         k1++;
                     } else {
                         if (this.event == null) {
-                            a(this.c, aint1[0], aint1[1], aint1[2], l, 0);
+                            setTypeAndData(this.c, aint1[0], aint1[1], aint1[2], l, 0);
                         } else {
                             BlockState state = this.bukkitWorld.getBlockAt(aint1[0], aint1[1], aint1[2]).getState();
                             state.setTypeId(l);
@@ -212,7 +212,7 @@ public class WorldGenBigTree extends WorldGenerator {
                 aint3[b3] = MathHelper.floor(aint[b3] + j * d1 + 0.5D);
 
                 if (this.event == null) {
-                    a(this.c, aint3[0], aint3[1], aint3[2], i, 0);
+                    setTypeAndData(this.c, aint3[0], aint3[1], aint3[2], i, 0);
                 } else {
                     BlockState state = this.bukkitWorld.getBlockAt(aint3[0], aint3[1], aint3[2]).getState();
                     state.setTypeId(i);

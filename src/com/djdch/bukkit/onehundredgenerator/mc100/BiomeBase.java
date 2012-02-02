@@ -40,61 +40,68 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
     public static final BiomeBase MUSHROOM_ISLAND = new BiomeMushrooms(14).b(16711935).a("MushroomIsland").a(0.9F, 1.0F).b(0.2F, 1.0F);
     public static final BiomeBase MUSHROOM_SHORE = new BiomeMushrooms(15).b(10486015).a("MushroomIslandShore").a(0.9F, 1.0F).b(-1.0F, 0.1F);
 
-//    public String r;
-//    public int s;
-//    public byte t = (byte)Block.GRASS.id;
-//    public byte u = (byte)Block.DIRT.id;
-//    public int v = 5169201;
-//    public float w = 0.1F;
-//    public float x = 0.3F;
-//    public float y = 0.5F;
-//    public float z = 0.5F;
-//    public int A = 16777215;
-    public BiomeDecorator B;
+//    UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
+//    public String w;
+//    public int x;
+//    public byte y = (byte) Block.GRASS.id;
+//    public byte z = (byte) Block.DIRT.id;
+//    public int A = 5169201;
+//    public float B = 0.1F;
+//    public float C = 0.3F;
+//    public float D = 0.5F;
+//    public float E = 0.5F;
+//    public int F = 16777215;
+//    UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
+
+    public BiomeDecorator G;
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    protected List<BiomeMeta> C = new ArrayList();
+    protected List<BiomeMeta> H = new ArrayList();
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    protected List<BiomeMeta> D = new ArrayList();
+    protected List<BiomeMeta> I = new ArrayList();
     @SuppressWarnings({ "unchecked", "rawtypes" })
-    protected List<BiomeMeta> E = new ArrayList();
-//    private boolean K;
-//    private boolean L = true;
-//    public final int F;
-    protected WorldGenTrees G = new WorldGenTrees(false);
-    protected WorldGenBigTree H = new WorldGenBigTree(false);
-    protected WorldGenForest I = new WorldGenForest(false);
-    protected WorldGenSwampTree J = new WorldGenSwampTree();
+    protected List<BiomeMeta> J = new ArrayList();
+
+//    UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
+//    private boolean P;
+//    private boolean Q = true;
+//    public final int K;
+//    UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
+
+    protected WorldGenTrees L = new WorldGenTrees(false);
+    protected WorldGenBigTree M = new WorldGenBigTree(false);
+    protected WorldGenForest N = new WorldGenForest(false);
+    protected WorldGenSwampTree O = new WorldGenSwampTree();
 
     protected BiomeBase(int paramInt) {
         super(paramInt);
 
-//      this.F = paramInt;
+//      this.K = paramInt;
         a[paramInt] = this;
-        this.B = createBiomeDecorator();
+        this.G = createBiomeDecorator();
 
         // Override values
-        this.t = (byte) Block.GRASS.id;
-        this.u = (byte) Block.DIRT.id;
-        this.v = 5169201;
-        this.w = 0.1F;
-        this.x = 0.3F;
-        this.y = 0.5F;
-        this.z = 0.5F;
-        this.A = 16777215;
+        this.y = (byte) Block.GRASS.id;
+        this.z = (byte) Block.DIRT.id;
+        this.A = 5169201;
+        this.B = 0.1F;
+        this.C = 0.3F;
+        this.D = 0.5F;
+        this.E = 0.5F;
+        this.F = 16777215;
 
-        this.D.add(new BiomeMeta(EntitySheep.class, 12, 4, 4));
-        this.D.add(new BiomeMeta(EntityPig.class, 10, 4, 4));
-        this.D.add(new BiomeMeta(EntityChicken.class, 10, 4, 4));
-        this.D.add(new BiomeMeta(EntityCow.class, 8, 4, 4));
+        this.I.add(new BiomeMeta(EntitySheep.class, 12, 4, 4));
+        this.I.add(new BiomeMeta(EntityPig.class, 10, 4, 4));
+        this.I.add(new BiomeMeta(EntityChicken.class, 10, 4, 4));
+        this.I.add(new BiomeMeta(EntityCow.class, 8, 4, 4));
 
-        this.C.add(new BiomeMeta(EntitySpider.class, 10, 4, 4));
-        this.C.add(new BiomeMeta(EntityZombie.class, 10, 4, 4));
-        this.C.add(new BiomeMeta(EntitySkeleton.class, 10, 4, 4));
-        this.C.add(new BiomeMeta(EntityCreeper.class, 10, 4, 4));
-        this.C.add(new BiomeMeta(EntitySlime.class, 10, 4, 4));
-        this.C.add(new BiomeMeta(EntityEnderman.class, 1, 1, 4));
+        this.H.add(new BiomeMeta(EntitySpider.class, 10, 4, 4));
+        this.H.add(new BiomeMeta(EntityZombie.class, 10, 4, 4));
+        this.H.add(new BiomeMeta(EntitySkeleton.class, 10, 4, 4));
+        this.H.add(new BiomeMeta(EntityCreeper.class, 10, 4, 4));
+        this.H.add(new BiomeMeta(EntitySlime.class, 10, 4, 4));
+        this.H.add(new BiomeMeta(EntityEnderman.class, 1, 1, 4));
 
-        this.E.add(new BiomeMeta(EntitySquid.class, 10, 4, 4));
+        this.J.add(new BiomeMeta(EntitySquid.class, 10, 4, 4));
     }
 
     protected BiomeDecorator createBiomeDecorator() {
@@ -105,82 +112,92 @@ public class BiomeBase extends net.minecraft.server.BiomeBase {
         if ((paramFloat1 > 0.1F) && (paramFloat1 < 0.2F))
             throw new IllegalArgumentException("Please avoid temperatures in the range 0.1 - 0.2 because of snow");
 
-        this.y = paramFloat1;
-        this.z = paramFloat2;
+        this.D = paramFloat1;
+        this.E = paramFloat2;
         return this;
     }
 
     private BiomeBase b(float paramFloat1, float paramFloat2) {
-        this.w = paramFloat1;
-        this.x = paramFloat2;
+        this.B = paramFloat1;
+        this.C = paramFloat2;
         return this;
     }
 
+//  UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 //    private BiomeBase g() {
-//        this.L = false;
+//        this.Q = false;
 //        return this;
 //    }
+//  UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 
 //    @Override
 //    public WorldGenerator a(Random paramRandom) {
     public WorldGenerator aa(Random paramRandom) {
         if (paramRandom.nextInt(10) == 0) {
-            return this.H;
+            return this.M;
         }
-        return this.G;
+        return this.L;
     }
 
     protected BiomeBase a(String paramString) {
-        this.r = paramString;
+        this.w = paramString;
         return this;
     }
 
     protected BiomeBase a(int paramInt) {
-        this.v = paramInt;
+        this.A = paramInt;
         return this;
     }
 
     protected BiomeBase b(int paramInt) {
-        this.s = paramInt;
+        this.x = paramInt;
         return this;
     }
 
     @Override
-    public List<BiomeMeta> a(EnumCreatureType paramEnumCreatureType) {
+    public List<BiomeMeta> getMobs(EnumCreatureType paramEnumCreatureType) {
         if (paramEnumCreatureType == EnumCreatureType.MONSTER)
-            return this.C;
+            return this.H;
         if (paramEnumCreatureType == EnumCreatureType.CREATURE)
-            return this.D;
+            return this.I;
         if (paramEnumCreatureType == EnumCreatureType.WATER_CREATURE)
-            return this.E;
+            return this.J;
         return null;
     }
 
+//  UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 //    public boolean b() {
-//        return this.K;
+//        return this.P;
 //    }
+//  UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 
+//  UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 //    public boolean c() {
-//        if (this.K)
+//        if (this.P)
 //            return false;
-//        return this.L;
+//        return this.Q;
 //    }
+//  UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 
     @Override
     public float d() {
         return 0.1F;
     }
 
+//  UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 //    public final int e() {
-//        return (int) (this.z * 65536.0F);
+//        return (int) (this.E * 65536.0F);
 //    }
+//  UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 
+//  UNCOMMENT BELOW WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 //    public final int f() {
-//        return (int) (this.y * 65536.0F);
+//        return (int) (this.D * 65536.0F);
 //    }
+//  UNCOMMENT ABOVE WHEN REFACTORING THE CODE. OTHERWISE, KEEP COMMENTED
 
     @Override
     public void a(World paramWorld, Random paramRandom, int paramInt1, int paramInt2) {
-        this.B.a(paramWorld, paramRandom, paramInt1, paramInt2);
+        this.G.a(paramWorld, paramRandom, paramInt1, paramInt2);
     }
 }

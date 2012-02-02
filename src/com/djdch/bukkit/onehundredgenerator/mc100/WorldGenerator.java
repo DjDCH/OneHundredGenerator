@@ -22,7 +22,7 @@ public abstract class WorldGenerator {
     public void a(double d0, double d1, double d2) {
     }
 
-    protected void a(BlockChangeDelegate world, int i, int j, int k, int l, int i1) {
+    protected void setTypeAndData(BlockChangeDelegate world, int i, int j, int k, int l, int i1) {
         if (this.a)
             ((World) world).setTypeIdAndData(i, j, k, l, i1);
         else

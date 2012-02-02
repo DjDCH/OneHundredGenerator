@@ -24,7 +24,7 @@ public class GenLayerIcePlains extends GenLayer {
                 } else {
                     int i3 = a(5);
                     if (i3 == 0)
-                        i3 = BiomeBase.ICE_PLAINS.F;
+                        i3 = BiomeBase.ICE_PLAINS.K;
                     else
                         i3 = 1;
                     arrayOfInt2[(i1 + n * paramInt3)] = i3;

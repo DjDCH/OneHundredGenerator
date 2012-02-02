@@ -23,9 +23,9 @@ public class GenLayerRiver extends GenLayer {
                 int i5 = arrayOfInt1[(i1 + 1 + (n + 2) * k)];
                 int i6 = arrayOfInt1[(i1 + 1 + (n + 1) * k)];
                 if ((i6 == 0) || (i2 == 0) || (i3 == 0) || (i4 == 0) || (i5 == 0))
-                    arrayOfInt2[(i1 + n * paramInt3)] = BiomeBase.RIVER.F;
+                    arrayOfInt2[(i1 + n * paramInt3)] = BiomeBase.RIVER.K;
                 else if ((i6 != i2) || (i6 != i4) || (i6 != i3) || (i6 != i5))
-                    arrayOfInt2[(i1 + n * paramInt3)] = BiomeBase.RIVER.F;
+                    arrayOfInt2[(i1 + n * paramInt3)] = BiomeBase.RIVER.K;
                 else {
                     arrayOfInt2[(i1 + n * paramInt3)] = -1;
                 }

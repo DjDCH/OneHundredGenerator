@@ -23,13 +23,13 @@ public class GenLayerRiverMix extends GenLayer {
 
         int[] arrayOfInt3 = IntCache.a(paramInt3 * paramInt4);
         for (int i = 0; i < paramInt3 * paramInt4; i++) {
-            if (arrayOfInt1[i] == BiomeBase.OCEAN.F) {
+            if (arrayOfInt1[i] == BiomeBase.OCEAN.K) {
                 arrayOfInt3[i] = arrayOfInt1[i];
             } else if (arrayOfInt2[i] >= 0) {
-                if (arrayOfInt1[i] == BiomeBase.ICE_PLAINS.F)
-                    arrayOfInt3[i] = BiomeBase.FROZEN_RIVER.F;
-                else if ((arrayOfInt1[i] == BiomeBase.MUSHROOM_ISLAND.F) || (arrayOfInt1[i] == BiomeBase.MUSHROOM_SHORE.F))
-                    arrayOfInt3[i] = BiomeBase.MUSHROOM_SHORE.F;
+                if (arrayOfInt1[i] == BiomeBase.ICE_PLAINS.K)
+                    arrayOfInt3[i] = BiomeBase.FROZEN_RIVER.K;
+                else if ((arrayOfInt1[i] == BiomeBase.MUSHROOM_ISLAND.K) || (arrayOfInt1[i] == BiomeBase.MUSHROOM_SHORE.K))
+                    arrayOfInt3[i] = BiomeBase.MUSHROOM_SHORE.K;
                 else
                     arrayOfInt3[i] = arrayOfInt2[i];
             } else

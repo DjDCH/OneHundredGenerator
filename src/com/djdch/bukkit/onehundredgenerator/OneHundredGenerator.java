@@ -90,7 +90,7 @@ public class OneHundredGenerator extends JavaPlugin {
             net.minecraft.server.World workWorld = ((CraftWorld) world).getHandle();
 
             WorldChunkManager chunkManager = new WorldChunkManager(workWorld);
-            workWorld.worldProvider.b = chunkManager;
+            workWorld.worldProvider.c = chunkManager;
             worldSetting.getChunkProvider().Init(workWorld, chunkManager, workWorld.getSeed(), worldSetting.getLevelStructures());
             worldSetting.setInit(true);
 

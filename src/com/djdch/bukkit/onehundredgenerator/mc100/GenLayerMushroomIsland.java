@@ -24,7 +24,7 @@ public class GenLayerMushroomIsland extends GenLayer {
                 int i6 = arrayOfInt1[(i1 + 1 + (n + 1) * k)];
                 a(i1 + paramInt1, n + paramInt2);
                 if ((i6 == 0) && (i2 == 0) && (i3 == 0) && (i4 == 0) && (i5 == 0) && (a(100) == 0))
-                    arrayOfInt2[(i1 + n * paramInt3)] = BiomeBase.MUSHROOM_ISLAND.F;
+                    arrayOfInt2[(i1 + n * paramInt3)] = BiomeBase.MUSHROOM_ISLAND.K;
                 else {
                     arrayOfInt2[(i1 + n * paramInt3)] = i6;
                 }

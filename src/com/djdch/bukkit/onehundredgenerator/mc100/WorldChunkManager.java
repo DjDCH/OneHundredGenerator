@@ -43,7 +43,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
     }
 
     @Override
-    public BiomeBase a(ChunkCoordIntPair paramChunkCoordIntPair) {
+    public BiomeBase getBiome(ChunkCoordIntPair paramChunkCoordIntPair) {
         return getBiome(paramChunkCoordIntPair.x << 4, paramChunkCoordIntPair.z << 4);
     }
 
@@ -118,7 +118,7 @@ public class WorldChunkManager extends net.minecraft.server.WorldChunkManager {
         return paramArrayOfBiomeBase;
     }
 
-    public BiomeBase[] a(BiomeBase[] paramArrayOfBiomeBase, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
+    public BiomeBase[] getBiomeBlock(BiomeBase[] paramArrayOfBiomeBase, int paramInt1, int paramInt2, int paramInt3, int paramInt4) {
         return a(paramArrayOfBiomeBase, paramInt1, paramInt2, paramInt3, paramInt4, true);
     }
 

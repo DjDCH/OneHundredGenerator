@@ -80,7 +80,7 @@ public class WorldGenForest extends WorldGenerator {
                             if (((Math.abs(j2) == k1) && (Math.abs(l2) == k1) && ((random.nextInt(2) == 0) || (j1 == 0))) || (Block.o[world.getTypeId(l1, i2, k2)] != false))
                                 continue;
                             if (event == null) {
-                                a(world, l1, i2, k2, Block.LEAVES.id, 2);
+                                setTypeAndData(world, l1, i2, k2, Block.LEAVES.id, 2);
                             } else {
                                 BlockState leavesState = bukkitWorld.getBlockAt(l1, i2, k2).getState();
                                 leavesState.setTypeId(Block.LEAVES.id);
@@ -98,7 +98,7 @@ public class WorldGenForest extends WorldGenerator {
                     if ((j1 != 0) && (j1 != Block.LEAVES.id))
                         continue;
                     if (event == null) {
-                        a(world, i, j + i2, k, Block.LOG.id, 2);
+                        setTypeAndData(world, i, j + i2, k, Block.LOG.id, 2);
                     } else {
                         BlockState logState = bukkitWorld.getBlockAt(i, j + i2, k).getState();
                         logState.setTypeId(Block.LOG.id);

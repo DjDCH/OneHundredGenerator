@@ -19,12 +19,12 @@ public class GenLayerBiome extends GenLayer {
                 int k = arrayOfInt1[(j + i * paramInt3)];
                 if (k == 0)
                     arrayOfInt2[(j + i * paramInt3)] = 0;
-                else if (k == BiomeBase.MUSHROOM_ISLAND.F)
+                else if (k == BiomeBase.MUSHROOM_ISLAND.K)
                     arrayOfInt2[(j + i * paramInt3)] = k;
                 else if (k == 1)
-                    arrayOfInt2[(j + i * paramInt3)] = this.b[a(this.b.length)].F;
+                    arrayOfInt2[(j + i * paramInt3)] = this.b[a(this.b.length)].K;
                 else {
-                    arrayOfInt2[(j + i * paramInt3)] = BiomeBase.ICE_PLAINS.F;
+                    arrayOfInt2[(j + i * paramInt3)] = BiomeBase.ICE_PLAINS.K;
                 }
             }
         }
